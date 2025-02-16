@@ -32,7 +32,15 @@
   .logo {
     height: 50px; /* Điều chỉnh kích thước logo */
   }
-  
+  .nav-content-text{
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28px;
+    color: blue;
+    padding: 0px 8px;
+  }
   /* Ô tìm kiếm */
   .search-container {
     display: flex;
@@ -42,8 +50,9 @@
     border-radius: 25px;
     padding: 5px 10px;
     flex-grow: 1;
-    max-width: 400px;
-  }
+    max-width: 210px;
+    margin-left: -386px;
+}
   
   .search-input {
     border: none;
