@@ -4,27 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../maulogin/TrangNguoiQuanLy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Trang Quản Lý Đăng Ký</title>
 </head>
 
 <body>
-    <!-- Thanh điều hướng -->
     <nav>
         <div class="nav-content">
             <img src="../maulogin/image/LogoTruong.png" alt="Logo" class="logo">
             <div class="search-container">
                 <input type="text" placeholder="Tìm kiếm..." class="search-input">
-                <button class="search-button">
-                    <i class="fa fa-search"></i>
-                </button>
+                <button class="search-button"><i class="fa fa-search"></i></button>
             </div>
-            <div class="nav-content-text"> Trang Người Quản Lý </div>
+            <div class="nav-content-text">Trang Người Quản Lý</div>
+            <div class="user-menu" id="userMenu">
+                <img src="../maulogin/image/Avarta.png" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Huỳnh Tiến Hiểu</span>
+                <i class="fa fa-caret-down"></i>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a href="#">Thông tin cá nhân</a></li>
+                    <li><a href="#">Đổi mật khẩu</a></li>
+                    <li><a href="#">Đăng xuất</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <!-- Nội dung chính -->
     <div class="container">
         <main>
             <h2 class="main-title">Thông tin quản lý</h2>
@@ -33,15 +38,24 @@
                 <p><strong>Họ tên:</strong> Huỳnh Tiến Hiểu</p>
                 <p><strong>Giới tính:</strong> Nam</p>
                 <p><strong>Ngày sinh:</strong> 01/01/2004</p>
-                <p><strong>Quê quán:</strong> Đông Tháp</p>
+                <p><strong>Quê quán:</strong> Đồng Tháp</p>
             </article>
         </main>
     </div>
-
-    <!-- Footer -->
     <footer>
         <p>Huỳnh Tiến Hiểu - ĐHCNTT22A</p>
     </footer>
+    <script>
+        document.getElementById('userMenu').addEventListener('click', function (event) {
+            event.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('show');
+        });
+        document.addEventListener('click', function (event) {
+            if (!document.getElementById('userMenu').contains(event.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+    </script>
 </body>
 
 </html>
