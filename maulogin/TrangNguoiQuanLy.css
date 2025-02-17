@@ -48,7 +48,9 @@ nav {
   cursor: pointer;
   color: #333;
 }
-
+a.a-color {
+  color: black;
+}
 .nav-content-text {
   font-size: 31px;
   font-weight: bold;
@@ -150,7 +152,7 @@ footer {
   }
 
   .search-container {
-    width: 71%;
+    width: 67%;
     margin-top: 10px;
     margin-bottom: 10px;
  }
