@@ -1,11 +1,26 @@
+/* Reset mặc định */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   text-decoration: none;
+  list-style: none;
 }
-
+li.list-group-item {
+  border: none;
+}
+a.a-color {
+  text-decoration: none;
+}
+a.btn.btn-outline-primary.btn-sm {
+  width: 98px;
+  margin-right: 67px;
+}
+.card.shadow-sm.text-center.p-3 {
+  top: 21px;
+}
+/* ======== THANH ĐIỀU HƯỚNG (NAV) ======== */
 nav {
   background-color: #ffffff;
   display: flex;
@@ -26,6 +41,7 @@ nav {
   height: 50px;
 }
 
+/* Ô tìm kiếm */
 .search-container {
   display: flex;
   align-items: center;
@@ -48,15 +64,15 @@ nav {
   cursor: pointer;
   color: #333;
 }
-a.a-color {
-  color: black;
-}
+
+/* Tiêu đề trang */
 .nav-content-text {
   font-size: 31px;
   font-weight: bold;
   color: #6156ff;
 }
 
+/* ======== MENU NGƯỜI DÙNG ======== */
 .user-menu {
   position: relative;
   display: flex;
@@ -77,6 +93,7 @@ a.a-color {
   font-weight: 500;
 }
 
+/* Dropdown menu */
 .dropdown-menu {
   position: absolute;
   right: 0;
@@ -86,7 +103,6 @@ a.a-color {
   border-radius: 5px;
   width: 160px;
   display: none;
-  list-style: none;
   padding: 5px 0;
   z-index: 100;
   left: 30px;
@@ -112,12 +128,13 @@ a.a-color {
   display: block;
 }
 
+/* ======== PHẦN NỘI DUNG CHÍNH ======== */
 .container {
   max-width: 800px;
   margin: 30px auto;
   padding: 20px;
   background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   border-radius: 10px;
 }
 
@@ -137,6 +154,7 @@ a.a-color {
   margin: 5px 0;
 }
 
+/* ======== CHÂN TRANG (FOOTER) ======== */
 footer {
   text-align: center;
   padding: 10px;
@@ -144,19 +162,20 @@ footer {
   margin-top: 20px;
 }
 
-/* Media Queries for Mobile */
+/* ======== RESPONSIVE ======== */
+
+/* Tablet & Mobile */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
+  /* Ẩn ô tìm kiếm trên điện thoại */
   .search-container {
-    width: 67%;
-    margin-top: 10px;
-    margin-bottom: 10px;
- }
-  
+    display: none;
+  }
 
   .nav-content-text {
     font-size: 24px;
@@ -181,11 +200,11 @@ footer {
   }
 }
 
+/* Mobile nhỏ */
 @media (max-width: 480px) {
   .nav-content {
     padding: 10px;
   }
-
 
   .main-title {
     font-size: 18px;

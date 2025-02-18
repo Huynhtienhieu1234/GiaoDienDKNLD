@@ -1,11 +1,14 @@
+/* ======== RESET MẶC ĐỊNH ======== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   text-decoration: none;
+  list-style: none;
 }
 
+/* ======== THANH ĐIỀU HƯỚNG (NAV) ======== */
 nav {
   background-color: #ffffff;
   display: flex;
@@ -26,6 +29,7 @@ nav {
   height: 50px;
 }
 
+/* Ô tìm kiếm */
 .search-container {
   display: flex;
   align-items: center;
@@ -33,6 +37,11 @@ nav {
   border-radius: 20px;
   padding: 5px 10px;
   background: #f9f9f9;
+  transition: all 0.3s;
+}
+
+.search-container:hover {
+  border-color: #6156ff;
 }
 
 .search-input {
@@ -49,12 +58,14 @@ nav {
   color: #333;
 }
 
+/* Tiêu đề trang */
 .nav-content-text {
   font-size: 31px;
   font-weight: bold;
   color: #6156ff;
 }
 
+/* ======== MENU NGƯỜI DÙNG ======== */
 .user-menu {
   position: relative;
   display: flex;
@@ -75,6 +86,7 @@ nav {
   font-weight: 500;
 }
 
+/* Dropdown menu */
 .dropdown-menu {
   position: absolute;
   right: 0;
@@ -84,7 +96,6 @@ nav {
   border-radius: 5px;
   width: 160px;
   display: none;
-  list-style: none;
   padding: 5px 0;
   z-index: 100;
   left: 30px;
@@ -96,6 +107,7 @@ nav {
   text-align: left;
   font-size: 14px;
   border-bottom: 1px solid #ddd;
+  transition: all 0.3s;
 }
 
 .dropdown-menu li:last-child {
@@ -106,17 +118,14 @@ nav {
   background-color: #f0f0f0;
 }
 
-.dropdown-menu.show {
-  display: block;
-}
-
+/* ======== PHẦN NỘI DUNG CHÍNH ======== */
 .container {
   max-width: 800px;
   margin: 30px auto;
   padding: 20px;
   background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .main-title {
@@ -129,12 +138,18 @@ nav {
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.info-card:hover {
+  transform: scale(1.03);
 }
 
 .info-card p {
   margin: 5px 0;
 }
 
+/* ======== CHÂN TRANG (FOOTER) ======== */
 footer {
   text-align: center;
   padding: 10px;
@@ -142,19 +157,20 @@ footer {
   margin-top: 20px;
 }
 
-/* Media Queries for Mobile */
+/* ======== RESPONSIVE ======== */
+
+/* Tablet & Mobile */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
+  /* Ẩn ô tìm kiếm trên điện thoại */
   .search-container {
-    width: 71%;
-    margin-top: 10px;
-    margin-bottom: 10px;
- }
-  
+    display: none;
+  }
 
   .nav-content-text {
     font-size: 24px;
@@ -179,11 +195,11 @@ footer {
   }
 }
 
+/* Mobile nhỏ */
 @media (max-width: 480px) {
   .nav-content {
     padding: 10px;
   }
-
 
   .main-title {
     font-size: 18px;
