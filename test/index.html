@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="../maulogin/TrangNguoiQuanLy.css">
+    <link rel="stylesheet" href="../test/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Trang Quản Lý Đăng Ký</title>
 </head>
@@ -33,17 +33,17 @@
         </div>
     </nav>
     <div class="container mt-4">
-        <div class="card shadow-sm p-3">
-            <h4 class="text-danger fw-bold">Thông tin quản lý</h4>
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center">
-                    <img src="../maulogin/image/Avarta.png" class="img-fluid rounded-circle" width="120">
-                    <div class="mt-2">
-                        <a href="#" class="text-primary">Xem chi tiết</a>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm p-3 mb-4">
+                    <h4 class="text-danger fw-bold">Thông tin quản lý</h4>
+                    <div class="text-center">
+                        <img src="../maulogin/image/Avarta.png" class="img-fluid rounded-circle" width="120">
+                        <div class="mt-2">
+                            <a href="#" class="text-primary">Xem chi tiết</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush mt-3">
                         <li class="list-group-item"><strong>MSQL:</strong> 2025001</li>
                         <li class="list-group-item"><strong>Họ và Tên:</strong> Huỳnh Tiến Hiểu</li>
                         <li class="list-group-item"><strong>Email:</strong> hienht@example.com</li>
@@ -51,32 +51,52 @@
                     </ul>
                 </div>
             </div>
-        </div>
 
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <div class="card shadow-sm text-center p-3">
-                    <h6>TẠO THÔNG BÁO</h6>
-                    <a href="#" class="text-primary">Xem chi tiết</a>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm text-center p-3 bg-info text-white mb-4">
+                            <h6>TẠO LỊCH LAO ĐỘNG</h6>
+                            <a href="#" class="text-white">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card shadow-sm text-center p-3 bg-info text-white mb-4">
+                            <h6>TẠO LỊCH LAO ĐỘNG</h6>
+                            <a href="#" class="text-white">Xem chi tiết</a>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm text-center p-3 bg-info text-white">
-                    <h6>TẠO LỊCH LAO ĐỘNG</h6>
-                    <a href="#" class="text-white">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm text-center p-3 bg-warning">
-                    <h6>THỐNG KÊ</h6>
-                    <a href="#" class="text-dark">Xem chi tiết</a>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm text-center p-3 mb-4">
+                            <h6>TẠO THÔNG BÁO</h6>
+                            <a href="#" class="text-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm text-center p-3 bg-info text-white mb-4">
+                            <h6>TẠO LỊCH LAO ĐỘNG</h6>
+                            <a href="#" class="text-white">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm text-center p-3 bg-warning mb-4">
+                            <h6>THỐNG KÊ</h6>
+                            <a href="#" class="text-dark">Xem chi tiết</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>
+
+    <footer class="text-center p-3 mt-4 bg-light">
         <p>Huỳnh Tiến Hiểu - ĐHCNTT22A</p>
     </footer>
+
     <script>
         document.getElementById('userMenu').addEventListener('click', function (event) {
             event.stopPropagation();

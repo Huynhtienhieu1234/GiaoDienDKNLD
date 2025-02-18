@@ -7,35 +7,27 @@
   text-decoration: none;
   list-style: none;
 }
-
 body {
-  background: #edecec;
+  background: rgb(237 235 235);
 }
-
-/* Loại bỏ border của list-group-item */
 li.list-group-item {
   border: none;
 }
-
-/* Loại bỏ gạch chân của liên kết */
 a.a-color {
   text-decoration: none;
 }
-
-/* Style cho nút */
 a.btn.btn-outline-primary.btn-sm {
   width: 98px;
   margin-right: 67px;
 }
-
-/* Style cho card */
 .card.shadow-sm.text-center.p-3 {
-  margin-top: 21px;
+  top: 21px;
 }
-
 /* ======== THANH ĐIỀU HƯỚNG (NAV) ======== */
 nav {
   background-color: #ffffff;
+  display: flex;
+  justify-content: center;
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -43,7 +35,6 @@ nav {
 .nav-content {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,7 +59,6 @@ nav {
   outline: none;
   background: transparent;
   padding: 5px;
-  width: 200px;
 }
 
 .search-button {
@@ -118,6 +108,8 @@ nav {
   display: none;
   padding: 5px 0;
   z-index: 100;
+  left: 30px;
+  top: 38px;
 }
 
 .dropdown-menu li {
@@ -139,11 +131,19 @@ nav {
   display: block;
 }
 
-/* ======== PHẦN NỘI DUNG CHÍNH ======== */
+/* =================== PHẦN NỘI DUNG CHÍNH =================== */
 .container {
-  max-width: 1200px;
+  max-width: 1135px;
   margin: 30px auto;
   padding: 20px;
+  border-radius: 10px;
+}
+
+.contains-right {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 423px;
+  border: 1px solid #ffff;
 }
 
 .main-title {
@@ -162,7 +162,7 @@ nav {
   margin: 5px 0;
 }
 
-/* ======== CHÂN TRANG (FOOTER) ======== */
+/* =================== CHÂN TRANG (FOOTER) =================== */
 footer {
   text-align: center;
   padding: 10px;
@@ -170,9 +170,8 @@ footer {
   margin-top: 20px;
 }
 
-/* ======== RESPONSIVE ======== */
+/* =================== RESPONSIVE =================== */
 
-/* Tablet & Mobile */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
@@ -180,7 +179,6 @@ footer {
     text-align: center;
   }
 
-  /* Ẩn ô tìm kiếm trên điện thoại */
   .search-container {
     display: none;
   }
@@ -208,7 +206,6 @@ footer {
   }
 }
 
-/* Mobile nhỏ */
 @media (max-width: 480px) {
   .nav-content {
     padding: 10px;

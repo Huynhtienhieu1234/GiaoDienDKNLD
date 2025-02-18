@@ -7,6 +7,18 @@
   text-decoration: none;
   list-style: none;
 }
+h6 {
+  color: blue;
+  font-size: 24px;
+  font-weight: 500;
+}
+.img-Laodong {
+  height: 83px;
+  width: 96px;
+  display: block;
+  margin: auto;
+}
+
 body {
   background: rgb(237 235 235);
 }
@@ -20,10 +32,10 @@ a.btn.btn-outline-primary.btn-sm {
   width: 98px;
   margin-right: 67px;
 }
-.card.shadow-sm.text-center.p-3 {
-  top: 21px;
-}
 /* ======== THANH ĐIỀU HƯỚNG (NAV) ======== */
+h4.text-danger.fw-bold {
+  text-align: center;
+}
 nav {
   background-color: #ffffff;
   display: flex;
@@ -131,12 +143,25 @@ nav {
   display: block;
 }
 
-/* ======== PHẦN NỘI DUNG CHÍNH ======== */
+/* =================== PHẦN NỘI DUNG CHÍNH =================== */
+.card.shadow-sm.text-center.p-3.bg-info.text-white.mb-4 {
+  background-color: white;
+}
+.text-decoration-none{
+  text-decoration: none;
+}
 .container {
-  max-width: 800px;
+  max-width: 1135px;
   margin: 30px auto;
   padding: 20px;
   border-radius: 10px;
+}
+
+.contains-right {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 423px;
+  border: 1px solid #ffff;
 }
 
 .main-title {
@@ -155,7 +180,7 @@ nav {
   margin: 5px 0;
 }
 
-/* ======== CHÂN TRANG (FOOTER) ======== */
+/* =================== CHÂN TRANG (FOOTER) =================== */
 footer {
   text-align: center;
   padding: 10px;
@@ -163,9 +188,8 @@ footer {
   margin-top: 20px;
 }
 
-/* ======== RESPONSIVE ======== */
+/* =================== RESPONSIVE =================== */
 
-/* Tablet & Mobile */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
@@ -173,7 +197,6 @@ footer {
     text-align: center;
   }
 
-  /* Ẩn ô tìm kiếm trên điện thoại */
   .search-container {
     display: none;
   }
@@ -201,7 +224,6 @@ footer {
   }
 }
 
-/* Mobile nhỏ */
 @media (max-width: 480px) {
   .nav-content {
     padding: 10px;
