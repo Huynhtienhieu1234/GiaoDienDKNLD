@@ -7,9 +7,12 @@
   text-decoration: none;
   list-style: none;
 }
+a.text-primary {
+  text-decoration: none;
+}
 h6 {
   color: blue;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
 }
 .img-Laodong {
