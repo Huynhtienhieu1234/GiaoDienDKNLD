@@ -1,4 +1,4 @@
-/* ======== RESET MẶC ĐỊNH ======== */
+/* Reset mặc định */
 * {
   margin: 0;
   padding: 0;
@@ -8,11 +8,34 @@
   list-style: none;
 }
 
+body {
+  background: #edecec;
+}
+
+/* Loại bỏ border của list-group-item */
+li.list-group-item {
+  border: none;
+}
+
+/* Loại bỏ gạch chân của liên kết */
+a.a-color {
+  text-decoration: none;
+}
+
+/* Style cho nút */
+a.btn.btn-outline-primary.btn-sm {
+  width: 98px;
+  margin-right: 67px;
+}
+
+/* Style cho card */
+.card.shadow-sm.text-center.p-3 {
+  margin-top: 21px;
+}
+
 /* ======== THANH ĐIỀU HƯỚNG (NAV) ======== */
 nav {
   background-color: #ffffff;
-  display: flex;
-  justify-content: center;
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -20,6 +43,7 @@ nav {
 .nav-content {
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,11 +61,6 @@ nav {
   border-radius: 20px;
   padding: 5px 10px;
   background: #f9f9f9;
-  transition: all 0.3s;
-}
-
-.search-container:hover {
-  border-color: #6156ff;
 }
 
 .search-input {
@@ -49,6 +68,7 @@ nav {
   outline: none;
   background: transparent;
   padding: 5px;
+  width: 200px;
 }
 
 .search-button {
@@ -98,8 +118,6 @@ nav {
   display: none;
   padding: 5px 0;
   z-index: 100;
-  left: 30px;
-  top: 38px;
 }
 
 .dropdown-menu li {
@@ -107,7 +125,6 @@ nav {
   text-align: left;
   font-size: 14px;
   border-bottom: 1px solid #ddd;
-  transition: all 0.3s;
 }
 
 .dropdown-menu li:last-child {
@@ -118,14 +135,15 @@ nav {
   background-color: #f0f0f0;
 }
 
+.dropdown-menu.show {
+  display: block;
+}
+
 /* ======== PHẦN NỘI DUNG CHÍNH ======== */
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 30px auto;
   padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .main-title {
@@ -138,11 +156,6 @@ nav {
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
-}
-
-.info-card:hover {
-  transform: scale(1.03);
 }
 
 .info-card p {
