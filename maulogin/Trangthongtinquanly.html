@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="../maulogin/Trangthongtinquanly.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Trang Quản Lý Đăng Ký</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <img src="../maulogin/image/LogoTruong.png" alt="Logo" class="logo">
+            <div class="search-container">
+                <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                <button class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="nav-content-text">Quản Lý Lao Động</div>
+            <div class="user-menu" id="userMenu">
+                <img src="../maulogin/image/Avarta.png" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Huỳnh Tiến Hiểu</span>
+                <i class="fa fa-caret-down"></i>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a class="a-color" href="../maulogin/Trangthongtinquanly.html">Thông tin cá nhân</a></li>
+                    <li><a class="a-color" href="#">Đổi mật khẩu</a></li>
+                    <li><a class="a-color" href="../maulogin/login.html">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+
+    </div>
+
+
+
+    <script>
+        document.getElementById('userMenu').addEventListener('click', function (event) {
+            event.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('show');
+        });
+        document.addEventListener('click', function (event) {
+            if (!document.getElementById('userMenu').contains(event.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>
