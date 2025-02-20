@@ -7,7 +7,9 @@
   text-decoration: none;
   list-style: none;
 }
-
+a.a-color {
+  text-decoration: none;
+}
 body {
   background: #f5f5f5;
 }
