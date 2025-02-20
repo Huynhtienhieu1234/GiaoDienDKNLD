@@ -188,7 +188,7 @@
   
   .col-md-4 {
     margin-bottom: 10px;
-}
+  }
   .box-container-menu {
     display: flex;
     flex-direction: column;
@@ -223,4 +223,12 @@
   .box-container-menu a:hover {
     color: rgb(100, 111, 255);
     background-color: #f0f0ff;
+  }
+  /* col */
+  .col-md-4 {
+  
+    width: 23.333333%;
+  }
+  .col-md-8 {
+    width: 76.666667%;
   }
