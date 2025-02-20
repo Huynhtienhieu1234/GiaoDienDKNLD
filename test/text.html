@@ -5,46 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Quản Lý Đăng Ký</title>
-    <link rel="stylesheet" href="../test/text.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../test/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- Thanh Điều Hướng -->
+    <nav>
+        <div class="nav-content">
+            <a href="../maulogin/TrangNguoiQuanLy.html">
+                <img src="../maulogin/image/LogoTruong.png" alt="Logo" class="logo">
+            </a>
+            <div class="search-container">
+                <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                <button class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="nav-content-text">Quản Lý Lao Động</div>
+            <div class="user-menu" id="userMenu">
+                <img src="../maulogin/image/Avarta.png" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Huỳnh Tiến Hiểu</span>
+                <i class="fa fa-caret-down"></i>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a href="../maulogin/Trangthongtinquanly.html">Thông tin cá nhân</a></li>
+                    <li><a href="#">Đổi mật khẩu</a></li>
+                    <li><a href="../maulogin/login.html">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Header -->
-    <header class="header">
-        <img src="logo.png" alt="Logo Trường Đại Học Đồng Tháp">
-        <h1>Quản Lý Lao Động</h1>
-    </header>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Menu bên trái -->
+            <div class="col-md-4">
+                <div class="box-container-menu">
+                    <a href="../maulogin/TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
+                    <a href="#"><i class="fa fa-calendar"></i> Tạo lịch lao động</a>
+                    <a href="#"><i class="fa fa-bar-chart"></i> Thống kê</a>
+                    <a href="#"><i class="fa fa-file-text"></i> Báo cáo</a>
+                    <a href="#"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
+                </div>
+            </div>
 
-    <!-- Container chính -->
-    <div class="container">
-        <!-- Sidebar -->
-        <nav class="sidebar">
-            <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Tạo lịch làm</a></li>
-                <li><a href="#">Lịch thông báo</a></li>
-                <li><a href="#">Báo cáo</a></li>
-                <li><a href="#">Xác thực</a></li>
-            </ul>
-        </nav>
-
-        <!-- Nội dung chính -->
-        <main class="content">
-            <section class="profile-card">
-                <h2>Thông tin tài khoản</h2>
-                <img src="avatar.jpg" alt="Ảnh đại diện">
-                <p><strong>MSSV:</strong> B1801234</p>
-                <p><strong>Họ Tên:</strong> Nguyễn Văn A</p>
-                <p><strong>Ngày sinh:</strong> 01/01/2000</p>
-                <p><strong>Giới tính:</strong> Nam</p>
-                <p><strong>Email:</strong> nguyenvana@gmail.com</p>
-                <p><strong>Số điện thoại:</strong> 0123456789</p>
-                <button class="btn">Chỉnh sửa thông tin</button>
-            </section>
-        </main>
+            <!-- Thông tin tài khoản -->
+            <div class="col-md-8">
+                <div class="account-info">
+                    <h3 class="account-title">Thông tin tài khoản</h3>
+                    <div class="avatar-container">
+                        <img src="../maulogin/image/Avarta.png" alt="Avatar" class="avatar">
+                        <div class="avatar-overlay">Thay đổi</div>
+                    </div>
+                    <div class="account-details">
+                        <div class="account-info-left">
+                            <p><strong>MSQL:</strong> 2025001</p>
+                            <p><strong>Họ và tên:</strong> Huỳnh Tiến Hiểu</p>
+                            <p><strong>Email:</strong> Huynhtienhieu@gmail.com</p>
+                            <p><strong>Vai trò:</strong> Quản lý</p>
+                        </div>
+                        <div class="account-info-right">
+                            <p><strong>Ngày sinh:</strong> 01/01/2000</p>
+                            <p><strong>Giới tính:</strong> Nam</p>
+                            <p><strong>Địa chỉ:</strong> Cao Lãnh, Đồng Tháp</p>
+                            <p><strong>Số điện thoại:</strong> 0123456789</p>
+                        </div>
+                    </div>
+                    <div class="account-action">
+                        <button class="btn btn-primary">Chỉnh sửa thông tin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Script -->
+    <script>
+        document.getElementById('userMenu').addEventListener('click', function (event) {
+            event.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('show');
+        });
+        document.addEventListener('click', function (event) {
+            if (!document.getElementById('userMenu').contains(event.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+    </script>
 
 </body>
 
