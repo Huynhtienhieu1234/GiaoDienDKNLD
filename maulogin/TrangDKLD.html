@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="../maulogin/Trangthongtinquanly.css">
+    <link rel="stylesheet" href="../maulogin/TrangDKLD.css">
 
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Trang Quản Lý Đăng Ký</title>
@@ -53,8 +53,30 @@
                         <option value="1">Lao Động Cá Nhân</option>
                         <option value="2">Lao Động Nhóm</option>
                     </select>
+
+                    <label for="location">Địa điểm:</label>
+                    <select id="location" class="form-select">
+                        <option value="1">Khu A</option>
+                        <option value="2">Khu B</option>
+                        <option value="3">Khu C</option>
+                    </select>
+
+                    <label for="time">Thời gian:</label>
+                    <select id="time" class="form-select">
+                        <option value="1">Sáng: 7h30 - 8h</option>
+                        <option value="2">Chiều: 13h30 - 14h</option>
+                    </select>
+
+                    <label for="quantity">Số Lượng:</label>
+                    <select id="quantity" class="form-select">
+                        <option value="1">1-5</option>
+                        <option value="2">5-10</option>
+                    </select>
+                    <!-- Nút Thêm -->
+                    <button id="add-button" class="btn btn-primary">Thêm</button>
                 </div>
             </div>
+
 
         </div>
         <script>

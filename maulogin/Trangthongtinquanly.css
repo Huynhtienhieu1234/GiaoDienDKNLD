@@ -204,15 +204,22 @@ nav {
   color: black;
   border-radius: 5px;
   transition: background 0.3s ease-in-out;
+  border-bottom: 1px solid #ddd; /* Thêm đường kẻ */
+}
+.box-container-menu a:last-child {
+  border-bottom: none;
 }
 
+/* Biểu tượng menu */
 .box-container-menu a i {
   margin-right: 10px;
   color: #007bff;
 }
 
+/* Hiệu ứng hover */
 .box-container-menu a:hover {
   color: rgb(100, 111, 255);
+  background-color: #f0f0ff;
 }
 
 /* ======== THÔNG TIN NGƯỜI DÙNG ======== */
