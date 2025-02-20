@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Quản Lý Đăng Ký</title>
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../test/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="../maulogin/Trangthongtinquanly.css">
+
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Trang Quản Lý Đăng Ký</title>
 </head>
 
 <body>
-    <!-- Thanh Điều Hướng -->
     <nav>
         <div class="nav-content">
             <a href="../maulogin/TrangNguoiQuanLy.html">
@@ -29,17 +28,15 @@
                 <span class="user-name">Huỳnh Tiến Hiểu</span>
                 <i class="fa fa-caret-down"></i>
                 <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="../maulogin/Trangthongtinquanly.html">Thông tin cá nhân</a></li>
-                    <li><a href="#">Đổi mật khẩu</a></li>
-                    <li><a href="../maulogin/login.html">Đăng xuất</a></li>
+                    <li><a class="a-color" href="../maulogin/Trangthongtinquanly.html">Thông tin cá nhân</a></li>
+                    <li><a class="a-color" href="#">Đổi mật khẩu</a></li>
+                    <li><a class="a-color" href="../maulogin/login.html">Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="container mt-4">
         <div class="row">
-            <!-- Menu bên trái -->
             <div class="col-md-4">
                 <div class="box-container-menu">
                     <a href="../maulogin/TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
@@ -49,8 +46,6 @@
                     <a href="#"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
                 </div>
             </div>
-
-            <!-- Thông tin tài khoản -->
             <div class="col-md-8">
                 <div class="account-info">
                     <h3 class="account-title">Thông tin tài khoản</h3>
@@ -58,19 +53,28 @@
                         <img src="../maulogin/image/Avarta.png" alt="Avatar" class="avatar">
                         <div class="avatar-overlay">Thay đổi</div>
                     </div>
+
                     <div class="account-details">
-                        <div class="account-info-left">
-                            <p><strong>MSQL:</strong> 2025001</p>
-                            <p><strong>Họ và tên:</strong> Huỳnh Tiến Hiểu</p>
-                            <p><strong>Email:</strong> Huynhtienhieu@gmail.com</p>
-                            <p><strong>Vai trò:</strong> Quản lý</p>
+                        <div class=" account-info-left">
+                            <ul class="list-group list-group-flush mt-3">
+                                <li class="list-group-item"><label><strong>MSQL:</strong> 2025001</label></li>
+                                <li class="list-group-item"><label><strong>Họ và tên:</strong> Huỳnh Tiến Hiểu</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <label><strong>Email:</strong>Huynhtienhieu@gmail.com</label>
+                                </li>
+                                <li class="list-group-item"><label><strong>Vai trò:</strong> Quản lý</label></li>
+                            </ul>
                         </div>
                         <div class="account-info-right">
-                            <p><strong>Ngày sinh:</strong> 01/01/2000</p>
-                            <p><strong>Giới tính:</strong> Nam</p>
-                            <p><strong>Địa chỉ:</strong> Cao Lãnh, Đồng Tháp</p>
-                            <p><strong>Số điện thoại:</strong> 0123456789</p>
+                            <ul class="list-group list-group-flush mt-3">
+                                <li><label><strong>Ngày sinh:</strong> 01/01/2000</label></li>
+                                <li><label><strong>Giới tính:</strong> Nam</label></li>
+                                <li><label><strong>Địa chỉ:</strong> Cao Lãnh, Đồng Tháp</label></li>
+                                <li><label><strong>Số điện thoại:</strong> 0123456789</label></li>
+                            </ul>
                         </div>
+
                     </div>
                     <div class="account-action">
                         <button class="btn btn-primary">Chỉnh sửa thông tin</button>
@@ -78,21 +82,17 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Script -->
-    <script>
-        document.getElementById('userMenu').addEventListener('click', function (event) {
-            event.stopPropagation();
-            document.getElementById('dropdownMenu').classList.toggle('show');
-        });
-        document.addEventListener('click', function (event) {
-            if (!document.getElementById('userMenu').contains(event.target)) {
-                document.getElementById('dropdownMenu').classList.remove('show');
-            }
-        });
-    </script>
-
+        <script>
+            document.getElementById('userMenu').addEventListener('click', function (event) {
+                event.stopPropagation();
+                document.getElementById('dropdownMenu').classList.toggle('show');
+            });
+            document.addEventListener('click', function (event) {
+                if (!document.getElementById('userMenu').contains(event.target)) {
+                    document.getElementById('dropdownMenu').classList.remove('show');
+                }
+            });
+        </script>
 </body>
 
 </html>
