@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="../CSS/LichLaoDong.css">
+    <link rel="stylesheet" href="../CSS/ThongBao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Lịch Lao Động</title>
+    <title>Trang Thông Báo</title>
 </head>
 
 <body>
     <nav>
         <div class="nav-content">
-            <a href="TrangNguoiQuanLy.html">
+            <a href="../HTML/TrangNguoiQuanLy.html">
                 <img src="../image/LogoTruong.png" alt="Logo" class="logo">
             </a>
             <div class="search-container">
@@ -34,55 +35,39 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
+    <div class="container mt-5">
+        <div class="nav-content-text" style="text-align: center;">Thông Báo</div>
         <div class="row">
+            <!-- Menu Bên Trái -->
             <div class="col-md-3">
                 <div class="box-container-menu">
-                    <a href="#"><i class="fa fa-home"></i> LAO ĐỘNG CÁ NHÂN</a>
-                    <a href="#"><i class="fa fa-calendar"></i>LAO ĐỘNG LỚP</a>
+                    <a href="TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
+                    <a href="#" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng kí</a>
+                    <a href="#" class="icon-link"><i class="fa fa-calendar"></i>Lịch Lao Động</a>
+                    <a href="#"><i class="fa fa-bar-chart"></i> Thống kê</a>
+                    <a href="#"><i class="fa fa-file-text"></i> Báo cáo</a>
+                    <a href="#"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
                 </div>
             </div>
-            <div class="col-md-9">
-                <h2 class="text-center">Lịch Lao Động</h2>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead class="table-primary">
-                            <tr>
-                                <th>Thứ - Ngày</th>
-                                <th>Buổi</th>
-                                <th>Tên lớp</th>
-                                <th>Người đăng ký</th>
-                                <th>Số điện thoại</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Thứ 2 - 02/12/2024</td>
-                                <td>Sáng</td>
-                                <td>ĐHCNTT22A</td>
-                                <td>Huỳnh Tiến Hiểu</td>
-                                <td>0783914486</td>
 
-                            </tr>
-                            <tr>
-                                <td>Thứ 2 - 02/12/2024</td>
-                                <td>Sáng</td>
-                                <td>ĐHCNTT22C</td>
-                                <td>Đặng Thị Xuân Mai</td>
-                                <td>0783914486</td>
-                            </tr>
-                            <tr>
-                                <td>Thứ 2 - 02/12/2024</td>
-                                <td>Chiều</td>
-                                <td>DHCNTT22A</td>
-                                <td>Trương Hoàng Phúc</td>
-                                <td>0907891780</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="col-md-9">
+                <div class="info-card">
+                    <div class="profile-img-container">
+
+                        <textarea name="thongbao" rows="4" cols="50" placeholder="Nhập thông báo tại đây..."></textarea>
+                        <!-- Submit button -->
+                        <input type="submit" value="Gửi">
+                    </div>
                 </div>
             </div>
+
+
         </div>
+
+
+
+
+
         <script>
             document.getElementById('userMenu').addEventListener('click', function (event) {
                 event.stopPropagation();
@@ -97,6 +82,3 @@
 </body>
 
 </html>
-<div class=" menu-container-mt-4">
-
-</div>
