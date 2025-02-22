@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
     <link rel="stylesheet" href="../CSS/TrangDKLD.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Trang Tạo Đăng Ký</title>
 </head>
@@ -36,11 +36,14 @@
         </div>
     </nav>
     <div class="container mt-4">
+        <div class="nav-content-text" style="text-align: center;">Tạo Đăng Kí Lao Động</div>
         <div class="row">
             <div class="col-md-4">
                 <div class="box-container-menu">
                     <a href="TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
-                    <a href="#"><i class="fa fa-calendar"></i> Tạo lịch lao động</a>
+                    <a href="TrangDKLD.html" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng
+                        kí</a>
+                    <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i>Lịch Lao Động</a>
                     <a href="#"><i class="fa fa-bar-chart"></i> Thống kê</a>
                     <a href="#"><i class="fa fa-file-text"></i> Báo cáo</a>
                     <a href="#"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
@@ -60,7 +63,12 @@
                         <option value="2">Khu B</option>
                         <option value="3">Khu C</option>
                     </select>
-
+                    <label for="location">Chi Tiết Khu Lao Động:</label>
+                    <select id="location" class="form-select">
+                        <option value="1">Đường Từ B1 đến giảng đường 1</option>
+                        <option value="2">Khu Trước A9</option>
+                        <option value="3">Trước Dãy A1</option>
+                    </select>
                     <label for="time">Thời gian:</label>
                     <select id="time" class="form-select">
                         <option value="1">Sáng: 7h30 - 8h</option>
