@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="../CSS/Trangthongtinquanly.css">
+    <link rel="stylesheet" href="../CSS/DuyetDK.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Trang Thông Tin Người Quản Lý</title>
+    <title>Trang Duyệt Đăng Kí</title>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
     </nav>
     <div class="container mt-5">
         <div class="nav-content-text">
-            <span class="nav-content-text"> Thông Tin Quản Lý</span>
+            <span class="nav-content-text">Duyệt Đăng Kí</span>
         </div>
         <div class="row">
             <!-- Menu Bên Trái -->
@@ -55,7 +56,7 @@
                     <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i> Lịch Lao Động</a>
                     <a href="ThongBao.html"><i class="fas fa-bell"></i> Thông báo</a>
                     <a href="Thongke.html"><i class="fa fa-bar-chart"></i> Thống kê</a>
-                    <a href="XacNhanHoanThanh.html"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
+                    <a href="#"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
                 </div>
             </div>
 
@@ -67,7 +68,7 @@
                     if (menu.style.maxHeight === "0px" || menu.style.maxHeight === "") {
                         menu.style.maxHeight = "500px"; // Mở menu
                         button.classList.remove("fa-bars");
-                        button.classList.add("fa-times"); // Đổi icon thành "X"
+                        button.classList.add("fa-times");
                     } else {
                         menu.style.maxHeight = "0px"; // Đóng menu
                         button.classList.remove("fa-times");
@@ -75,31 +76,64 @@
                     }
                 }
             </script>
-
-            <!-- Thông Tin Tài Khoản -->
             <div class="col-md-9">
-                <div class="info-card">
-                    <h2 class="title">Thông tin tài khoản</h2>
-                    <div class="profile-img-container">
-                        <img src="../image/Avarta.png" alt="Ảnh đại diện" class="profile-img">
-                        <div class="overlay">Thay đổi ảnh</div>
-                    </div>
+                <div class="text"><span>Danh Sách Chưa Duyệt</span></div>
+                <table class="table table-bordered" id="table-chua-duyet">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và Tên</th>
+                            <th>Ngày Đăng Ký</th>
+                            <th>Trạng Thái</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Huỳnh Tiến Hiểu</td>
+                            <td>22/02/2025</td>
+                            <td>Chưa duyệt</td>
+                            <td><button class="btn-duyet" onclick="duyet(this)">Duyệt</button></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <div class="info">
-                        <p><strong>MSQL:</strong> 2025001</p>
-                        <p><strong>Họ và tên:</strong> Huỳnh Tiến Hiếu</p>
-                        <p><strong>Email:</strong> Huynhtienhieu@gmail.com</p>
-                    </div>
-                    <div class="info">
-                        <p><strong>Ngày sinh:</strong> 01/01/2000</p>
-                        <p><strong>Giới tính:</strong> Nam</p>
-                        <p><strong>Địa chỉ:</strong> Cao Lãnh, Đồng Tháp</p>
-                        <p><strong>Số điện thoại:</strong> 0123456789</p>
-                        <p><strong>Vai trò:</strong> Quản lý</p>
-                    </div>
-                    <button class="btn btn-primary">Chỉnh sửa thông tin</button>
-                </div>
+                <div class="text"><span>Danh Sách Đã Duyệt</span></div>
+                <table class="table table-bordered" id="table-da-duyet">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và Tên</th>
+                            <th>Ngày Đăng Ký</th>
+                            <th>Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <script>
+                function duyet(button) {
+                    let row = button.parentElement.parentElement; // Lấy hàng chứa nút
+                    let tableDaDuyet = document.getElementById("table-da-duyet").getElementsByTagName("tbody")[0];
+
+                    // Chỉnh trạng thái thành "Đã duyệt"
+                    row.cells[3].innerText = "Đã duyệt";
+
+                    // Xóa cột chứa nút "Duyệt"
+                    row.deleteCell(4);
+
+                    // Thêm vào bảng "Danh Đã Duyệt"
+                    tableDaDuyet.appendChild(row);
+                }
+            </script>
+
+
+
         </div>
     </div>
 
