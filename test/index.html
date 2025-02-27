@@ -7,107 +7,140 @@
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
     <link rel="stylesheet" href="../test/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Trang Quản Lý Đăng Ký</title>
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Lịch Lao Động</title>
 </head>
 
 <body>
     <nav>
         <div class="nav-content">
-            <img src="../maulogin/image/LogoTruong.png" alt="Logo" class="logo">
+            <a href="TrangNguoiQuanLy.html">
+                <img src="../image/LogoTruong.png" alt="Logo" class="logo">
+            </a>
             <div class="search-container">
                 <input type="text" placeholder="Tìm kiếm..." class="search-input">
                 <button class="search-button"><i class="fa fa-search"></i></button>
             </div>
-            <div class="nav-content-text">Quản Lý</div>
+            <div class="nav-content-text">Quản Lý Lao Động</div>
             <div class="user-menu" id="userMenu">
-                <img src="../maulogin/image/Avarta.png" alt="User Avatar" class="user-avatar">
+                <img src="../image/Avarta.png" alt="User Avatar" class="user-avatar">
                 <span class="user-name">Huỳnh Tiến Hiểu</span>
                 <i class="fa fa-caret-down"></i>
                 <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a class="a-color" href="#">Thông tin cá nhân</a></li>
+                    <li><a class="a-color" href="Trangthongtinquanly.html">Thông tin cá nhân</a></li>
                     <li><a class="a-color" href="#">Đổi mật khẩu</a></li>
-                    <li><a class="a-color" href="#">Đăng xuất</a></li>
+                    <li><a class="a-color" href="login.html">Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card shadow-sm p-3 mb-4">
-                    <h4 class="text-danger fw-bold">Thông tin quản lý</h4>
-                    <div class="text-center">
-                        <img src="../maulogin/image/Avarta.png" class="img-fluid rounded-circle" width="120">
-                        <div class="mt-2">
-                            <a href="#" class="text-primary">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <ul class="list-group list-group-flush mt-3">
-                        <li class="list-group-item"><strong>MSQL:</strong> 2025001</li>
-                        <li class="list-group-item"><strong>Họ và Tên:</strong> Huỳnh Tiến Hiểu</li>
-                        <li class="list-group-item"><strong>Email:</strong> hienht@example.com</li>
-                        <li class="list-group-item"><strong>Vai trò:</strong> Quản lý</li>
-                    </ul>
+            <!-- Menu Bên Trái -->
+            <div class="col-md-3">
+                <!-- Nút bấm để mở menu -->
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+
+                <!-- Danh sách menu -->
+                <div class="box-container-menu" id="menu">
+                    <a href="TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
+                    <a href="TrangDKLD.html" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng
+                        kí</a>
+                    <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i> Lịch Lao Động</a>
+                    <a href="ThongBao.html"><i class="fas fa-bell"></i> Thông báo</a>
+                    <a href="Thongke.html"><i class="fa fa-bar-chart"></i> Thống kê</a>
+                    <a href="XacNhanHoanThanh.html"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
                 </div>
             </div>
 
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card shadow-sm text-center p-3 bg-info text-white mb-4">
-                            <h6>TẠO LỊCH LAO ĐỘNG</h6>
-                            <a href="#" class="text-white">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card shadow-sm text-center p-3 bg-info text-white mb-4">
-                            <h6>TẠO LỊCH LAO ĐỘNG</h6>
-                            <a href="#" class="text-white">Xem chi tiết</a>
-                        </div>
-                    </div>
+            <script>
+                function toggleMenu() {
+                    var menu = document.getElementById("menu");
+                    var button = document.querySelector(".menu-toggle i");
 
+                    if (menu.style.maxHeight === "0px" || menu.style.maxHeight === "") {
+                        menu.style.maxHeight = "500px"; // Mở menu
+                        button.classList.remove("fa-bars");
+                        button.classList.add("fa-times"); // Đổi icon thành "X"
+                    } else {
+                        menu.style.maxHeight = "0px"; // Đóng menu
+                        button.classList.remove("fa-times");
+                        button.classList.add("fa-bars"); // Đổi lại icon "Menu"
+                    }
+                }
+            </script>
+        </div>
+        <div class="col-md-9">
+            <h2 class="text-center">Lịch Lao Động</h2>
+            <div class="sub-menu">
+                <button class="sub-menu-btn active" onclick="showTable('personal')">
+                    <i class="fa fa-home"></i> Lao động cá nhân
+                </button>
+                <button class="sub-menu-btn" onclick="showTable('class')">
+                    <i class="fa fa-calendar"></i> Lao động lớp
+                </button>
+            </div>
+            <div class="table-container" id="personalTable">
+                <div class="data-row">
+                    <div class="data-item"><span class="label">Thứ - Ngày:</span> Thứ 2 - 02/12/2024</div>
+                    <div class="data-item"><span class="label">Buổi:</span> Sáng</div>
+                    <div class="data-item"><span class="label">Tên lớp:</span> ĐHCNTT22A</div>
+                    <div class="data-item"><span class="label">Người đăng ký:</span> Huỳnh Tiến Hiểu</div>
+                    <div class="data-item"><span class="label">Số điện thoại:</span> 0783914486</div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card shadow-sm text-center p-3 mb-4">
-                            <h6>TẠO THÔNG BÁO</h6>
-                            <a href="#" class="text-primary">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm text-center p-3 bg-info text-white mb-4">
-                            <h6>TẠO LỊCH LAO ĐỘNG</h6>
-                            <a href="#" class="text-white">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm text-center p-3 bg-warning mb-4">
-                            <h6>THỐNG KÊ</h6>
-                            <a href="#" class="text-dark">Xem chi tiết</a>
-                        </div>
-                    </div>
+            </div>
+            <div class="table-container" id="classTable" style="display: none;">
+                <div class="data-row">
+                    <div class="data-item"><span class="label">Thứ - Ngày:</span> Thứ 2 - 02/12/2024</div>
+                    <div class="data-item"><span class="label">Buổi:</span> Sáng</div>
+                    <div class="data-item"><span class="label">Tên lớp:</span> ĐHCNTT22C</div>
+                    <div class="data-item"><span class="label">Người đăng ký:</span> Đặng Thị Xuân Mai</div>
+                    <div class="data-item"><span class="label">Số điện thoại:</span> 0783914486</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-item"><span class="label">Thứ - Ngày:</span> Thứ 2 - 02/12/2024</div>
+                    <div class="data-item"><span class="label">Buổi:</span> Chiều</div>
+                    <div class="data-item"><span class="label">Tên lớp:</span> DHCNTT22A</div>
+                    <div class="data-item"><span class="label">Người đăng ký:</span> Trương Hoàng Phúc</div>
+                    <div class="data-item"><span class="label">Số điện thoại:</span> 0907891780</div>
                 </div>
             </div>
         </div>
-    </div>
+        <script>
+            function showTable(type) {
+                const personalTable = document.getElementById('personalTable');
+                const classTable = document.getElementById('classTable');
+                const buttons = document.querySelectorAll('.sub-menu-btn');
 
-    <footer class="text-center p-3 mt-4 bg-light">
-        <p>Huỳnh Tiến Hiểu - ĐHCNTT22A</p>
-    </footer>
+                if (type === 'personal') {
+                    personalTable.style.display = 'block';
+                    classTable.style.display = 'none';
+                } else {
+                    personalTable.style.display = 'none';
+                    classTable.style.display = 'block';
+                }
 
-    <script>
-        document.getElementById('userMenu').addEventListener('click', function (event) {
-            event.stopPropagation();
-            document.getElementById('dropdownMenu').classList.toggle('show');
-        });
-        document.addEventListener('click', function (event) {
-            if (!document.getElementById('userMenu').contains(event.target)) {
-                document.getElementById('dropdownMenu').classList.remove('show');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                event.currentTarget.classList.add('active');
             }
-        });
-    </script>
+        </script>
+        <script>
+            document.getElementById('userMenu').addEventListener('click', function (event) {
+                event.stopPropagation();
+                document.getElementById('dropdownMenu').classList.toggle('show');
+            });
+            document.addEventListener('click', function (event) {
+                if (!document.getElementById('userMenu').contains(event.target)) {
+                    document.getElementById('dropdownMenu').classList.remove('show');
+                }
+            });
+        </script>
 </body>
 
 </html>
+<div class=" menu-container-mt-4">
+
+</div>

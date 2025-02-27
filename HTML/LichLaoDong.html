@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
     <link rel="stylesheet" href="../CSS/LichLaoDong.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Lịch Lao Động</title>
+    <title>Xác Nhận Hoàn Thành</title>
 </head>
 
 <body>
     <nav>
         <div class="nav-content">
-            <a href="TrangNguoiQuanLy.html">
+            <a href="../HTML/TrangNguoiQuanLy.html">
                 <img src="../image/LogoTruong.png" alt="Logo" class="logo">
             </a>
             <div class="search-container">
@@ -34,69 +36,158 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
+    <div class="container mt-5">
+        <div class="nav-content-text">
+            <span class="nav-content-text">Lịch Lao Động</span>
+        </div>
         <div class="row">
+            <!-- Menu Bên Trái -->
             <div class="col-md-3">
-                <div class="box-container-menu">
-                    <a href="#"><i class="fa fa-home"></i> LAO ĐỘNG CÁ NHÂN</a>
-                    <a href="#"><i class="fa fa-calendar"></i>LAO ĐỘNG LỚP</a>
+                <!-- Nút bấm để mở menu -->
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+
+                <!-- Danh sách menu -->
+                <div class="box-container-menu" id="menu">
+                    <a href="TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
+                    <a href="TrangDKLD.html" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng
+                        kí</a>
+                    <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i> Lịch Lao Động</a>
+                    <a href="ThongBao.html"><i class="fas fa-bell"></i> Thông báo</a>
+                    <a href="Thongke.html"><i class="fa fa-bar-chart"></i> Thống kê</a>
+                    <a href="XacNhanHoanThanh.html"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
                 </div>
             </div>
+
+            <script>
+                function toggleMenu() {
+                    var menu = document.getElementById("menu");
+                    var button = document.querySelector(".menu-toggle i");
+
+                    if (menu.style.maxHeight === "0px" || menu.style.maxHeight === "") {
+                        menu.style.maxHeight = "500px"; // Mở menu
+                        button.classList.remove("fa-bars");
+                        button.classList.add("fa-times");
+                    } else {
+                        menu.style.maxHeight = "0px"; // Đóng menu
+                        button.classList.remove("fa-times");
+                        button.classList.add("fa-bars"); // Đổi lại icon "Menu"
+                    }
+                }
+            </script>
             <div class="col-md-9">
-                <h2 class="text-center">Lịch Lao Động</h2>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead class="table-primary">
+                <div class="table-container">
+                    <table class="table table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <th>Thứ - Ngày</th>
-                                <th>Buổi</th>
-                                <th>Tên lớp</th>
-                                <th>Người đăng ký</th>
-                                <th>Số điện thoại</th>
+                                <th>STT</th>
+                                <th>Họ và Tên</th>
+                                <th>Lớp</th>
+                                <th>Ngày Bắt Đầu</th>
+                                <th>Ngày Kết Thúc</th>
+                                <th>Kết Quả</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="table-pending">
                             <tr>
-                                <td>Thứ 2 - 02/12/2024</td>
-                                <td>Sáng</td>
-                                <td>ĐHCNTT22A</td>
+                                <td>1</td>
                                 <td>Huỳnh Tiến Hiểu</td>
-                                <td>0783914486</td>
+                                <td>ĐHCNTT22A</td>
+                                <td>01/02/2025</td>
+                                <td>18/02/2025</td>
+                                <td>18/18 Ngày</td>
 
                             </tr>
                             <tr>
-                                <td>Thứ 2 - 02/12/2024</td>
-                                <td>Sáng</td>
-                                <td>ĐHCNTT22C</td>
-                                <td>Đặng Thị Xuân Mai</td>
-                                <td>0783914486</td>
+                                <td>2</td>
+                                <td>Nguyễn Văn B</td>
+                                <td>ĐHCNTT22B</td>
+                                <td>02/02/2025</td>
+                                <td>18/02/2025</td>
+                                <td>18/18 Ngày</td>
                             </tr>
                             <tr>
-                                <td>Thứ 2 - 02/12/2024</td>
-                                <td>Chiều</td>
-                                <td>DHCNTT22A</td>
-                                <td>Trương Hoàng Phúc</td>
-                                <td>0907891780</td>
+                                <td>3</td>
+                                <td>Trần Thị C</td>
+                                <td>ĐHCNTT22C</td>
+                                <td>03/02/2025</td>
+                                <td>18/02/2025</td>
+                                <td>18/18 Ngày</td>
+
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Lê Văn D</td>
+                                <td>ĐHCNTT22D</td>
+                                <td>04/02/2025</td>
+                                <td>18/02/2025</td>
+                                <td>18/18 Ngày</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Phạm Thị E</td>
+                                <td>ĐHCNTT22E</td>
+                                <td>05/02/2025</td>
+                                <td>18/02/2025</td>
+                                <td>18/18 Ngày</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-        <script>
-            document.getElementById('userMenu').addEventListener('click', function (event) {
-                event.stopPropagation();
-                document.getElementById('dropdownMenu').classList.toggle('show');
-            });
-            document.addEventListener('click', function (event) {
-                if (!document.getElementById('userMenu').contains(event.target)) {
-                    document.getElementById('dropdownMenu').classList.remove('show');
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Gán sự kiện cho tất cả nút "Duyệt"
+                    document.querySelectorAll(".btn-duyet").forEach(button => {
+                        button.addEventListener("click", function () {
+                            duyet(this);
+                        });
+                    });
+                });
+
+                function duyet(button) {
+                    let row = button.closest("tr"); // Lấy hàng chứa nút "Duyệt"
+                    let tableApproved = document.getElementById("table-approved"); // Lấy bảng "Đã Duyệt"
+
+                    // Tạo một hàng mới từ dữ liệu hàng hiện tại
+                    let newRow = document.createElement("tr");
+                    newRow.innerHTML = `
+            <td>${row.cells[0].innerText}</td>
+            <td>${row.cells[1].innerText}</td>
+            <td>${row.cells[2].innerText}</td>
+            <td>${row.cells[3].innerText}</td>
+            <td>${row.cells[4].innerText}</td>
+            <td><span class="status-approved">Đã Duyệt</span></td>
+            `;
+
+                    // Thêm hàng vào bảng "Đã Duyệt"
+                    tableApproved.appendChild(newRow);
+
+                    // Xóa hàng khỏi bảng "Chờ Duyệt"
+                    row.remove();
                 }
-            });
-        </script>
+            </script>
+
+
+
+            <script>
+                document.getElementById('userMenu').addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    document.getElementById('dropdownMenu').classList.toggle('show');
+                });
+                document.addEventListener('click', function (event) {
+                    if (!document.getElementById('userMenu').contains(event.target)) {
+                        document.getElementById('dropdownMenu').classList.remove('show');
+                    }
+                });
+            </script>
+        </div>
+    </div>
 </body>
 
 </html>
-<div class=" menu-container-mt-4">
-
-</div>
