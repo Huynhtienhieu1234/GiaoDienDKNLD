@@ -356,4 +356,47 @@ input[type="submit"]:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* Nút chọn  */
+.Topcontainer {
+  display: flex;
+  margin-bottom: 10px; /* Tạo khoảng cách giữa các button và bảng */
+}
+
+button.Topcontainer-left { 
+  display: flex;
+  justify-content: center; /* Căn giữa phần chữ theo chiều ngang */
+  align-items: center; /* Căn giữa phần chữ theo chiều dọc */
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  background-color: #007bff; /* Màu nền xanh lá cây */
+  color: white; /* Màu chữ trắng */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+button.Topcontainer-right {
+  display: flex;
+  justify-content: center; /* Căn giữa phần chữ theo chiều ngang */
+  align-items: center; /* Căn giữa phần chữ theo chiều dọc */
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 0px 10px;
+  background-color: #2196F3; /* Màu nền xanh dương */
+  color: white; /* Màu chữ trắng */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+button.Topcontainer-left:hover {
+  background-color: #4198f0; /* Màu nền khi hover */
+}
+
+button.Topcontainer-right:hover {
+  background-color: #58a7f7; /* Màu nền khi hover */
+}
+
+
 

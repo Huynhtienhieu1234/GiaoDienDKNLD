@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="../CSS/DuyetDK.css">
+    <link rel="stylesheet" href="../CSS/DiemDanh.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Trang Duyệt Đăng Kí</title>
+    <title>Trang Điểm Danh Lao Động</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
     </nav>
     <div class="container mt-5">
         <div class="nav-content-text">
-            <span class="nav-content-text">Duyệt Đăng Kí</span>
+            <span class="nav-content-text">Điểm Danh</span>
         </div>
         <div class="row">
             <!-- Menu Bên Trái -->
@@ -77,61 +77,8 @@
                 }
             </script>
             <div class="col-md-9">
-                <div class="text"><span>Danh Sách Chưa Duyệt</span></div>
-                <table class="table table-bordered" id="table-chua-duyet">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ và Tên</th>
-                            <th>Ngày Đăng Ký</th>
-                            <th>Trạng Thái</th>
-                            <th>Thao Tác</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Huỳnh Tiến Hiểu</td>
-                            <td>22/02/2025</td>
-                            <td>Chưa duyệt</td>
-                            <td><button class="btn-duyet" onclick="duyet(this)">Duyệt</button></td>
-                        </tr>
-                    </tbody>
-                </table>
 
-                <div class="text"><span>Danh Sách Đã Duyệt</span></div>
-                <table class="table table-bordered" id="table-da-duyet">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ và Tên</th>
-                            <th>Ngày Đăng Ký</th>
-                            <th>Trạng Thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-            <script>
-                function duyet(button) {
-                    let row = button.parentElement.parentElement; // Lấy hàng chứa nút
-                    let tableDaDuyet = document.getElementById("table-da-duyet").getElementsByTagName("tbody")[0];
-
-                    // Chỉnh trạng thái thành "Đã duyệt"
-                    row.cells[3].innerText = "Đã duyệt";
-
-                    // Xóa cột chứa nút "Duyệt"
-                    row.deleteCell(4);
-
-                    // Thêm vào bảng "Danh Đã Duyệt"
-                    tableDaDuyet.appendChild(row);
-                }
-            </script>
-
 
 
         </div>

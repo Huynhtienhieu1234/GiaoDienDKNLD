@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Xác Nhận Hoàn Thành</title>
+    <title>Lịch Lao Động</title>
 </head>
 
 <body>
@@ -19,10 +19,10 @@
             <a href="../HTML/TrangNguoiQuanLy.html">
                 <img src="../image/LogoTruong.png" alt="Logo" class="logo">
             </a>
-            <div class="search-container">
+            <!-- <div class="search-container">
                 <input type="text" placeholder="Tìm kiếm..." class="search-input">
                 <button class="search-button"><i class="fa fa-search"></i></button>
-            </div>
+            </div> -->
             <div class="nav-content-text">Quản Lý Lao Động</div>
             <div class="user-menu" id="userMenu">
                 <img src="../image/Avarta.png" alt="User Avatar" class="user-avatar">
@@ -77,16 +77,52 @@
                 }
             </script>
             <div class="col-md-9">
-                <div class="table-container">
+                <div class="Topcontainer">
+                    <button class="Topcontainer-left" onclick="showPersonal()">
+                        Đăng Kí Cá Nhân
+                    </button>
+                    <button class="Topcontainer-right" onclick="showClass()">
+                        Đăng Kí Lớp
+                    </button>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm..."
+                        style="margin-left: 10px; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+                    <button onclick="searchFunction()"
+                        style="padding: 10px; border-radius: 10px; border: 1px solid #ccc; background-color: #f44336; color: white; margin-left: 5px;">
+                        Tìm
+                    </button>
+                </div>
+                <script>
+                    function searchFunction() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById('searchInput');
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById('table-pending');
+                        tr = table.getElementsByTagName('tr');
+
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName('td')[1]; // Chỉ tìm kiếm trong cột "Họ và Tên"
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = '';
+                                } else {
+                                    tr[i].style.display = 'none';
+                                }
+                            }
+                        }
+                    }
+
+                </script>
+
+                <div class="table-container" id="personalTable">
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th>STT</th>
                                 <th>Họ và Tên</th>
                                 <th>Lớp</th>
-                                <th>Ngày Bắt Đầu</th>
-                                <th>Ngày Kết Thúc</th>
-                                <th>Kết Quả</th>
+                                <th>Loại lao Động</th>
+                                <th>Khu Vực</th>
                             </tr>
                         </thead>
                         <tbody id="table-pending">
@@ -94,86 +130,103 @@
                                 <td>1</td>
                                 <td>Huỳnh Tiến Hiểu</td>
                                 <td>ĐHCNTT22A</td>
-                                <td>01/02/2025</td>
-                                <td>18/02/2025</td>
-                                <td>18/18 Ngày</td>
-
+                                <td>Lao Động Cá Nhân</td>
+                                <td>Khu A</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Nguyễn Văn B</td>
                                 <td>ĐHCNTT22B</td>
-                                <td>02/02/2025</td>
-                                <td>18/02/2025</td>
-                                <td>18/18 Ngày</td>
+                                <td>Lao Động Cá Nhân</td>
+                                <td>Khu D</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Trần Thị C</td>
                                 <td>ĐHCNTT22C</td>
-                                <td>03/02/2025</td>
-                                <td>18/02/2025</td>
-                                <td>18/18 Ngày</td>
-
+                                <td>Lao Động Cá Nhân</td>
+                                <td>Khu C</td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td>Lê Văn D</td>
                                 <td>ĐHCNTT22D</td>
-                                <td>04/02/2025</td>
-                                <td>18/02/2025</td>
-                                <td>18/18 Ngày</td>
-
-
+                                <td>Lao Động Cá Nhân</td>
+                                <td>Khu B</td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td>Phạm Thị E</td>
                                 <td>ĐHCNTT22E</td>
-                                <td>05/02/2025</td>
-                                <td>18/02/2025</td>
-                                <td>18/18 Ngày</td>
+                                <td>Lao Động Cá Nhân</td>
+                                <td>Khu A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-container" id="classTable" style="display: none;">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và Tên</th>
+                                <th>Lớp</th>
+                                <th>Loại lao Động</th>
+                                <th>Khu Vực</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-pending">
+                            <tr>
+                                <td>1</td>
+                                <td>Huỳnh Tiến Hiểu</td>
+                                <td>ĐHCNTT22A</td>
+                                <td>Lao Động Theo Lớp</td>
+                                <td>Khu A</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nguyễn Văn B</td>
+                                <td>ĐHCNTT22B</td>
+                                <td>Lao Động Theo Lớp</td>
+                                <td>Khu D</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Trần Thị C</td>
+                                <td>ĐHCNTT22C</td>
+                                <td>Lao Động Theo Lớp</td>
+                                <td>Khu C</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Lê Văn D</td>
+                                <td>ĐHCNTT22D</td>
+                                <td>Lao Động Theo Lớp</td>
+                                <td>Khu B</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Phạm Thị E</td>
+                                <td>ĐHCNTT22E</td>
+                                <td>Lao Động Theo Lớp</td>
+                                <td>Khu A</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
-
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Gán sự kiện cho tất cả nút "Duyệt"
-                    document.querySelectorAll(".btn-duyet").forEach(button => {
-                        button.addEventListener("click", function () {
-                            duyet(this);
-                        });
-                    });
-                });
-
-                function duyet(button) {
-                    let row = button.closest("tr"); // Lấy hàng chứa nút "Duyệt"
-                    let tableApproved = document.getElementById("table-approved"); // Lấy bảng "Đã Duyệt"
-
-                    // Tạo một hàng mới từ dữ liệu hàng hiện tại
-                    let newRow = document.createElement("tr");
-                    newRow.innerHTML = `
-            <td>${row.cells[0].innerText}</td>
-            <td>${row.cells[1].innerText}</td>
-            <td>${row.cells[2].innerText}</td>
-            <td>${row.cells[3].innerText}</td>
-            <td>${row.cells[4].innerText}</td>
-            <td><span class="status-approved">Đã Duyệt</span></td>
-            `;
-
-                    // Thêm hàng vào bảng "Đã Duyệt"
-                    tableApproved.appendChild(newRow);
-
-                    // Xóa hàng khỏi bảng "Chờ Duyệt"
-                    row.remove();
+            <Script>
+                function showPersonal() {
+                    document.getElementById('personalTable').style.display = 'block';
+                    document.getElementById('classTable').style.display = 'none';
                 }
-            </script>
 
-
+                function showClass() {
+                    document.getElementById('personalTable').style.display = 'none';
+                    document.getElementById('classTable').style.display = 'block';
+                }
+            </Script>
 
             <script>
                 document.getElementById('userMenu').addEventListener('click', function (event) {
