@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="../CSS/TrangDKLD.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cấp Quyền Cán Bộ Lớp </title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../HTML/TrangNguoiQuanLy.html">
+                <img src="../image/LogoTruong.png" alt="Logo" class="logo">
+            </a>
+            <!-- <div class="search-container">
+                <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                <button class="search-button"><i class="fa fa-search"></i></button>
+            </div> -->
+            <div class="nav-content-text">Quản Lý Lao Động</div>
+            <div class="user-menu" id="userMenu">
+                <img src="../image/Avarta.png" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Huỳnh Tiến Hiểu</span>
+                <i class="fa fa-caret-down"></i>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a class="a-color" href="Trangthongtinquanly.html">Thông tin cá nhân</a></li>
+                    <li><a class="a-color" href="#">Đổi mật khẩu</a></li>
+                    <li><a class="a-color" href="login.html">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Nút bấm để mở menu -->
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+
+                <!-- Danh sách menu -->
+                <div class="box-container-menu" id="menu">
+                    <a href="TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
+                    <a href="TrangDKLD.html" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng
+                        kí</a>
+                    <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i> Lịch Lao Động</a>
+                    <a href="ThongBao.html"><i class="fas fa-bell"></i> Thông báo</a>
+                    <a href="Thongke.html"><i class="fa fa-bar-chart"></i> Thống kê</a>
+                    <a href="XacNhanHoanThanh.html"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
+                </div>
+            </div>
+
+            <script>
+                function toggleMenu() {
+                    var menu = document.getElementById("menu");
+                    var button = document.querySelector(".menu-toggle i");
+
+                    if (menu.style.maxHeight === "0px" || menu.style.maxHeight === "") {
+                        menu.style.maxHeight = "500px"; // Mở menu
+                        button.classList.remove("fa-bars");
+                        button.classList.add("fa-times"); // Đổi icon thành "X"
+                    } else {
+                        menu.style.maxHeight = "0px"; // Đóng menu
+                        button.classList.remove("fa-times");
+                        button.classList.add("fa-bars"); // Đổi lại icon "Menu"
+                    }
+                }
+            </script>
+            <div class="col-md-9">
+                <div class="nav-content-text">
+                    <span style="text-align: center;" class="nav-content-text">Cấp Quyền Cán Bộ Lớp</span>
+                </div>
+                <select id="labor-type" class="form-select">
+                    <option value="0">Chọn Ngành </option>
+                    <option value="1">Khoa CN-KT</option>
+                </select>
+                <select id="labor-type" class="form-select">
+                    <option value="0">Chọn Ngành </option>
+                    <option value="1">Khoa CN-KT</option>
+                </select>
+                <div class="table-container">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Sinh Viên</th>
+                                <th>Họ và Tên</th>
+                                <th>Ngày Sinh</th>
+                                <th>Lớp</th>
+                                <th>Ngành</th>
+                                <th>Cấp Quyền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2025001</td>
+                                <td>Huỳnh Tiến Hiểu</td>
+                                <td>Sinh Viên</td>
+                                <td>
+                                    <button class="btn btn-primary">Cấp quyền</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2025002</td>
+                                <td>Nguyễn Thị Thanh Tâm</td>
+                                <td>Sinh Viên</td>
+                                <td>
+                                    <button class="btn btn-primary">Cấp quyền</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2025003</td>
+                                <td>Trần Văn Thành</td>
+                                <td>Sinh Viên</td>
+                                <td>
+                                    <button class="btn btn-primary">Cấp quyền</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>2025004</td>
+                                <td>Nguyễn Thị Thanh Tâm</td>
+                                <td>Sinh Viên</td>
+                                <td>
+                                    <button class="btn btn-primary">Cấp quyền</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>2025005</td>
+                                <td>Trần Văn Thành</td>
+                                <td>Sinh Viên</td>
+                                <td>
+                                    <button class="btn btn-primary">Cấp quyền</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <script>
+                document.getElementById('userMenu').addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    document.getElementById('dropdownMenu').classList.toggle('show');
+                });
+                document.addEventListener('click', function (event) {
+                    if (!document.getElementById('userMenu').contains(event.target)) {
+                        document.getElementById('dropdownMenu').classList.remove('show');
+                    }
+                });
+            </script>
+</body>
+
+</html>
+<div class=" menu-container-mt-4">
+
+</div>
