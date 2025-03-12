@@ -3,66 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hover Text Color</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #fff;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        .text {
-            font-size: 18px;
-            line-height: 1.2;
-        }
-
-        .school {
-            color: red;
-            font-weight: bold;
-            display: block;
-        }
-
-        .faculty {
-            color: lightblue;
-            display: block;
-            padding-left: 15px;
-            /* Thụt vào một chút */
-        }
-
-        /* Hiệu ứng đổi màu khi hover */
-        .school:hover {
-            color: blue;
-        }
-
-        .faculty:hover {
-            color: darkblue;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../CSS/Quenmatkhau.css">
+    <title>Quên mật khẩu</title>
 </head>
 
 <body>
-
-    <div class="logo-container">
-        <img src="../image/logo.png" alt="Logo" class="logo">
-        <div class="text">
-            <span class="school">TRƯỜNG ĐẠI HỌC ĐỒNG THÁP</span>
-            <span class="faculty">Khoa Công nghệ và Kỹ thuật</span>
+    <div class="container">
+        <div class="logo">
+            <img src="../image/logo.png" alt="Logo">
         </div>
+        <h2>Quên mật khẩu</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Mã số sinh viên">
+            </div>
+            <div class="form-group row">
+                <input class="input-half" type="text" placeholder="Email">
+                <button type="button" id="send-code" class="btn">Gửi mã</button>
+            </div>
+            <button type="submit" class="btn full">Xác nhận</button>
+            <a href="login.html" class="link">Đăng Nhập</a>
+        </form>
     </div>
-
 </body>
 
 </html>
