@@ -54,6 +54,9 @@
                     <a href="TrangDKLD.html" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng
                         kí</a>
                     <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i> Lịch Lao Động</a>
+                    <a href="DiemDanh.html">
+                        <i class="fa-regular fa-calendar-check"></i> Điểm Danh
+                    </a>
                     <a href="ThongBao.html"><i class="fas fa-bell"></i> Thông báo</a>
                     <a href="Thongke.html"><i class="fa fa-bar-chart"></i> Thống kê</a>
                     <a href="XacNhanHoanThanh.html"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
@@ -85,6 +88,10 @@
                         <div class="chart-container">
                             <canvas id="myChart"></canvas>
                         </div>
+                        <!-- Nút xuất file Excel -->
+                        <button id="exportExcel" class="btn btn-success mt-3">
+                            Xuất file Excel
+                        </button>
                     </div>
                 </div>
             </div>
@@ -134,6 +141,39 @@
             }
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        document.getElementById("exportExcel").addEventListener("click", function () {
+            var chart = myChart; // Lấy dữ liệu từ biểu đồ
+
+            if (!chart) {
+                alert("Không có dữ liệu để xuất!");
+                return;
+            }
+
+            // Lấy nhãn (labels) và dữ liệu (data) từ biểu đồ
+            var labels = chart.data.labels;
+            var dataset = chart.data.datasets[0].data;
+
+            // Chuẩn bị dữ liệu dạng mảng cho Excel
+            var data = [["Tháng", "Số lượng"]];
+            labels.forEach((label, index) => {
+                data.push([label, dataset[index]]);
+            });
+
+            // Tạo file Excel
+            var wb = XLSX.utils.book_new();
+            var ws = XLSX.utils.aoa_to_sheet(data);
+            XLSX.utils.book_append_sheet(wb, ws, "Biểu đồ");
+
+            // Xuất file
+            XLSX.writeFile(wb, "ThongKe.xlsx");
+        });
+    </script>
+
+
+
+
 </body>
 
 </html>

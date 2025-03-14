@@ -61,7 +61,7 @@ nav {
 
 /* Tiêu đề trang */
 .nav-content-text {
-  font-size: 31px;
+  font-size: 27px;
   font-weight: bold;
   color: #6156ff;
 }
@@ -74,7 +74,12 @@ nav {
   cursor: pointer;
   gap: 8px;
 }
-
+.nav-content-text{
+  font-size: 27px;
+}
+.nav-content-text-1{
+  font-size: 31px;
+}
 .user-avatar {
   width: 35px;
   height: 35px;

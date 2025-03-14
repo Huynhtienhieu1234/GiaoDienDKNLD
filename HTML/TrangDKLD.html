@@ -52,13 +52,16 @@
                     <a href="TrangDKLD.html" class="icon-link"><i class="fa-regular fa-calendar-plus"></i> Tạo lịch đăng
                         kí</a>
                     <a href="LichLaoDong.html" class="icon-link"><i class="fa fa-calendar"></i> Lịch Lao Động</a>
+                    <a href="DiemDanh.html">
+                        <i class="fa-regular fa-calendar-check"></i> Điểm Danh
+                    </a>
                     <a href="ThongBao.html"><i class="fas fa-bell"></i> Thông báo</a>
                     <a href="Thongke.html"><i class="fa fa-bar-chart"></i> Thống kê</a>
                     <a href="XacNhanHoanThanh.html"><i class="fa fa-check-circle"></i> Xác nhận hoàn thành</a>
                     <a href="CanBoLop.html"><i class="fa-solid fa-users"></i> Cán Bộ Lớp</a>
                 </div>
             </div>
-            ss
+
             <script>
                 function toggleMenu() {
                     var menu = document.getElementById("menu");
@@ -76,46 +79,86 @@
                 }
             </script>
             <div class="col-md-9">
-                <div class="box-container-info">
-                    <label for="labor-type">Chọn loại lao động:</label>
-                    <select id="labor-type" class="form-select">
-                        <option value="0">Chọn loại lao động</option>
-                        <option value="1">Lao Động Cá Nhân</option>
-                        <option value="2">Lao Động Nhóm</option>
-                    </select>
 
-                    <label for="location">Địa điểm:</label>
-                    <select id="location" class="form-select">
-                        <option value="0">Chọn địa điểm</option>
-                        <option value="1">Khu A</option>
-                        <option value="2">Khu B</option>
-                        <option value="3">Khu C</option>
-                    </select>
-                    <label for="location">Chi Tiết Khu Lao Động:</label>
-                    <select id="location" class="form-select">
-                        <option value="1">Đường Từ NHB đến giảng đường 1</option>
-                        <option value="2">Khu Trước A9</option>
-                        <option value="3">Trước Dãy A1</option>
-                    </select>
-                    <label for="time">Thời gian:</label>
-                    <select id="time" class="form-select">
-                        <option value="0">Chọn thời gian</option>
-                        <option value="1">Sáng: 7h30 - 8h</option>
-                        <option value="2">Chiều: 13h30 - 14h</option>
-                    </select>
-
-                    <label for="quantity">Số Lượng:</label>
-                    <select id="quantity" class="form-select">
-                        <option value="0">Chọn số lượng</option>
-                        <option value="1">1-5</option>
-                        <option value="2">5-10</option>
-                    </select>
-                    <!-- Nút Thêm -->
-                    <button id="add-button" class="btn btn-primary">Thêm</button>
+                <div class="Topcontainer">
+                    <button class="Topcontainer-left" id="openFormButton">
+                        Tạo Đợt Lao động
+                    </button>
+                    <button class="Topcontainer-right">
+                        Xóa Đợt Lao động
+                    </button>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm..."
+                        style="margin-left: 10px; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+                    <button onclick="searchFunction()"
+                        style="padding: 10px; border-radius: 10px; border: 1px solid #ccc; background-color: #f44336; color: white; margin-left: 5px;">
+                        Tìm
+                    </button>
                 </div>
+                <div class="table-container" id="personalTable">
+
+
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th class="text-center align-middle">STT</th>
+                                <th class="text-center align-middle">Tên Đợt</th>
+                                <th class="text-center align-middle">Thứ</th>
+                                <th class="text-center align-middle">Loại Lao Động</th>
+                                <th class="text-center align-middle">Buổi</th>
+                                <th class="text-center align-middle">Thời Gian</th>
+                                <th class="text-center align-middle">Khu Vực</th>
+                                <th class="text-center align-middle">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-pending">
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td class="text-center align-middle">1</td>
+                                <td class="text-center align-middle">Đợt 1</td>
+                                <td class="text-center align-middle">Thứ hai</td>
+                                <td class="text-center align-middle">Lao Động Cá Nhân</td>
+                                <td class="text-center align-middle">Buổi sáng</td>
+                                <td class="text-center align-middle">7h-8h</td>
+                                <td class="text-center align-middle">Khu A</td>
+                                <td class="text-center align-middle">
+                                    <button class="btn btn-primary btn-sm">Xem Chi Tiết</button>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td class="text-center align-middle">2</td>
+                                <td class="text-center align-middle">Đợt 1</td>
+                                <td class="text-center align-middle">Thứ hai</td>
+                                <td class="text-center align-middle">Lao Động Lớp</td>
+                                <td class="text-center align-middle">Buổi sáng</td>
+                                <td class="text-center align-middle">7h-8h</td>
+                                <td class="text-center align-middle">Khu B</td>
+                                <td class="text-center align-middle">
+                                    <button class="btn btn-primary btn-sm">Xem Chi Tiết</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td class="text-center align-middle">3</td>
+                                <td class="text-center align-middle">Đợt 1</td>
+                                <td class="text-center align-middle">Thứ ba</td>
+                                <td class="text-center align-middle">Lao Động Cá Nhân</td>
+                                <td class="text-center align-middle">Buổi chiều</td>
+                                <td class="text-center align-middle">7h-8h</td>
+                                <td class="text-center align-middle">Khu C</td>
+
+                                <td class="text-center align-middle">
+                                    <button class="btn btn-primary btn-sm">Xem Chi Tiết</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
-
-
         </div>
         <script>
             document.getElementById('userMenu').addEventListener('click', function (event) {
@@ -128,9 +171,78 @@
                 }
             });
         </script>
+        <script>
+            document.getElementById("select-all").addEventListener("change", function () {
+                let checkboxes = document.querySelectorAll(".row-checkbox");
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+        </script>
+        <script>
+            // Hiển thị form khi bấm nút "Tạo Đợt Lao Động"
+            document.getElementById("openFormButton").addEventListener("click", function () {
+                document.getElementById("createShiftForm").style.display = "block";
+            });
+
+            // Đóng form khi bấm vào nút X
+            document.querySelector(".close").addEventListener("click", function () {
+                document.getElementById("createShiftForm").style.display = "none";
+            });
+
+        </script>
+        <!-- Form Tạo Đợt Lao Động -->
+        <div id="createShiftForm" class="modal">
+            <!-- Nút đóng form (X) -->
+            <span class="close">&times;</span>
+
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Tạo Đợt Lao Động</h2>
+                <form id="shiftForm">
+                    <!-- Tên Đợt -->
+                    <label for="shiftName">Tên Đợt:</label>
+                    <input type="text" id="shiftName" name="shiftName" required>
+
+                    <!-- Chọn Thứ -->
+                    <label for="day">Chọn Thứ:</label>
+                    <select id="day" name="day">
+                        <option value="Thứ hai">Thứ hai</option>
+                        <option value="Thứ ba">Thứ ba</option>
+                        <option value="Thứ tư">Thứ tư</option>
+                        <option value="Thứ năm">Thứ năm</option>
+                        <option value="Thứ sáu">Thứ sáu</option>
+                        <option value="Thứ bảy">Thứ bảy</option>
+                        <option value="Chủ nhật">Chủ nhật</option>
+                    </select>
+
+                    <!-- Chọn Buổi -->
+                    <label for="session">Chọn Buổi:</label>
+                    <select id="session" name="session">
+                        <option value="Buổi sáng">Buổi sáng</option>
+                        <option value="Buổi chiều">Buổi chiều</option>
+                    </select>
+
+                    <!-- Chọn Thời Gian -->
+                    <label for="time">Chọn Thời Gian:</label>
+                    <select id="time" name="time">
+                        <option value="7h-8h">7h-8h</option>
+                        <option value="14h-15h">14h-15h</option>
+                    </select>
+
+                    <!-- Chi Tiết Khu Vực -->
+                    <label for="area">Chi Tiết Khu Vực:</label>
+                    <input type="text" id="area" name="area" required>
+
+                    <!-- Upload Ảnh -->
+                    <label for="imageUpload">Tải lên hình ảnh:</label>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+
+                    <!-- Nút Gửi -->
+                    <button type="submit">Lưu</button>
+                </form>
+            </div>
+        </div>
 </body>
 
 </html>
-<div class=" menu-container-mt-4">
-
-</div>
