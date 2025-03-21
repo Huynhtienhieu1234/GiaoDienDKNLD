@@ -1,31 +1,156 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../CSS/Quenmatkhau.css">
-    <title>Quên mật khẩu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Đổi Mật Khẩu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .change-password-box {
+            background: white;
+            width: 350px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .change-password-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 12px 40px 12px 12px;
+            /* Thêm không gian cho biểu tượng mắt */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .input-box input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        .eye {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .eye:hover {
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="../image/logo.png" alt="Logo">
-        </div>
-        <h2>Quên mật khẩu</h2>
+    <div class="change-password-box">
+        <h2>Đổi Mật Khẩu</h2>
         <form>
-            <div class="form-group">
-                <input type="text" placeholder="Mã số sinh viên">
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Mật Khẩu" required>
+                <div class="eye">
+                    <i class="fa fa-eye" id="togglePassword1"></i>
+                </div>
             </div>
-            <div class="form-group row">
-                <input class="input-half" type="text" placeholder="Email">
-                <button type="button" id="send-code" class="btn">Gửi mã</button>
+            <div class="input-box">
+                <input type="password" id="confirm-password" placeholder="Xác Nhận Mật Khẩu" required>
+                <div class="eye">
+                    <i class="fa fa-eye" id="togglePassword2"></i>
+                </div>
             </div>
-            <button type="submit" class="btn full">Xác nhận</button>
-            <a href="login.html" class="link">Đăng Nhập</a>
+            <button type="button" onclick="changePassword()">Xác nhận</button>
         </form>
+
+        <p class="success-message" id="success-message">Đổi mật khẩu thành công!</p>
     </div>
+
+    <script>
+        // Xử lý nút hiện/ẩn mật khẩu
+        function togglePassword(fieldId, toggleId) {
+            const passwordField = document.getElementById(fieldId);
+            const toggleIcon = document.getElementById(toggleId);
+
+            // Thay đổi kiểu input giữa "password" và "text"
+            const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+            passwordField.setAttribute("type", type);
+
+            // Thay đổi biểu tượng
+            toggleIcon.classList.toggle("fa-eye");
+            toggleIcon.classList.toggle("fa-eye-slash");
+        }
+
+        // Thêm sự kiện cho từng biểu tượng mắt
+        document.getElementById("togglePassword1").addEventListener("click", function () {
+            togglePassword("password", "togglePassword1");
+        });
+
+        document.getElementById("togglePassword2").addEventListener("click", function () {
+            togglePassword("confirm-password", "togglePassword2");
+        });
+
+        // Xử lý nút "Xác nhận" để kiểm tra mật khẩu
+        function changePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+            const successMessage = document.getElementById("success-message");
+
+            if (password && confirmPassword && password === confirmPassword) {
+                successMessage.style.display = "block";
+            } else {
+                alert("Mật khẩu và xác nhận không trùng khớp. Vui lòng thử lại.");
+            }
+        }
+    </script>
 </body>
 
 </html>
