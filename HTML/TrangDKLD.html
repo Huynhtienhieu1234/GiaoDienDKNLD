@@ -25,7 +25,7 @@
                 <i class="fa fa-caret-down"></i>
                 <ul class="dropdown-menu" id="dropdownMenu">
                     <li><a class="a-color" href="Trangthongtinquanly.html">Thông tin cá nhân</a></li>
-                    <li><a class="a-color" href="#">Đổi mật khẩu</a></li>
+                    <li><a class="a-color" href="DoiMatKhau.html">Đổi mật khẩu</a></li>
                     <li><a class="a-color" href="login.html">Đăng xuất</a></li>
                 </ul>
             </div>
@@ -83,6 +83,7 @@
                                 <th class="text-center align-middle">Tên Đợt</th>
                                 <th class="text-center align-middle">Thứ</th>
                                 <th class="text-center align-middle">Loại Lao Động</th>
+                                <th class="text-center align-middle">Số Lượng</th>
                                 <th class="text-center align-middle">Buổi</th>
                                 <th class="text-center align-middle">Thời Gian</th>
                                 <th class="text-center align-middle">Khu Vực</th>
@@ -100,7 +101,8 @@
                     style="position: absolute; top: 10px; right: 15px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">&times;</button>
 
                 <div class="modal-content">
-                    <h2 style="text-align: center; font-family: 'Arial', sans-serif; color: #333;">Tạo Đợt Lao Động</h2>
+                    <h2 class="nav-content-text" style="text-align: center; font-family: 'Arial', sans-serif;">Tạo Đợt
+                        Lao Động</h2>
                     <form id="shiftForm" style="display: flex; flex-direction: column; gap: 10px;">
                         <label for="shiftName" style="font-weight: bold;">Tên Đợt:</label>
                         <input type="text" id="shiftName" name="shiftName" required
@@ -116,7 +118,16 @@
                             <option value="Thứ bảy">Thứ bảy</option>
                             <option value="Chủ nhật">Chủ nhật</option>
                         </select>
-
+                        <label for="day" style="font-weight: bold;">Chọn Loại Lao Động:</label>
+                        <select id="day" name="day" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                            <option value="Cá Nhân">Cá Nhân</option>
+                            <option value="Lớp">Nhóm Lớp</option>
+                        </select>
+                        <label for="day" style="font-weight: bold;">Chọn Số Lượng:</label>
+                        <select id="day" name="day" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                            <option value="Cá Nhân">1-5</option>
+                            <option value="Lớp">10</option>
+                        </select>
                         <label for="session" style="font-weight: bold;">Chọn Buổi:</label>
                         <select id="session" name="session"
                             style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
@@ -143,8 +154,29 @@
                     </form>
                 </div>
             </div>
-
-
+            <!-- Modal Chi Tiết Lao Động -->
+            <div id="shiftDetailModal" class="shift-modal" style="display: none;">
+                <div class="shift-modal-content">
+                    <button class="close-btn" title="Close"
+                        onclick="document.getElementById('shiftDetailModal').style.display='none'"
+                        style="position: absolute; top: 10px; right: 15px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">×</button>
+                    <h2 class="nav-content-text" style="text-align: center; font-family: 'Arial', sans-serif;">Chi Tiết
+                        Đợt Lao Động</h2>
+                    <div id="shiftDetailContent" style="padding: 20px;">
+                        <p><strong>Tên Đợt:</strong> <span id="shiftNameDetail"></span></p>
+                        <p><strong>Thứ:</strong> <span id="shiftDayDetail"></span></p>
+                        <p><strong>Loại Lao Động:</strong> <span id="shiftTypeDetail"></span></p>
+                        <p><strong>Số Lượng:</strong> <span id="shiftTypeDetail"></span></p>
+                        <p><strong>Buổi:</strong> <span id="shiftSessionDetail"></span></p>
+                        <p><strong>Thời Gian:</strong> <span id="shiftTimeDetail"></span></p>
+                        <p><strong>Khu Vực:</strong> <span id="shiftAreaDetail"></span></p>
+                    </div>
+                    <button onclick="document.getElementById('shiftDetailModal').style.display='none'"
+                        style="background-color: #f44336; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
+                        Đóng
+                    </button>
+                </div>
+            </div>
 
         </div>
         <script>
@@ -180,7 +212,7 @@
                 <td class="text-center align-middle">${rowIndex}</td>
                 <td class="text-center align-middle">${shiftName}</td>
                 <td class="text-center align-middle">${day}</td>
-                <td class="text-center align-middle">Lao Động Cá Nhân</td>
+                <td class="text-center align-middle">${shiftName}</td>
                 <td class="text-center align-middle">${session}</td>
                 <td class="text-center align-middle">${time}</td>
                 <td class="text-center align-middle">${area}</td>
@@ -234,6 +266,32 @@
             function searchFunction() {
                 console.log("Tìm kiếm: " + document.getElementById("searchInput").value);
             }
+            // Xử lý sự kiện cho nút "Xóa Đợt Lao Động"
+            document.addEventListener("click", function (event) {
+                if (event.target.classList.contains("view-detail")) {
+                    const row = event.target.closest("tr");
+                    const cells = row.getElementsByTagName("td");
+
+                    // Lấy dữ liệu từ hàng được click
+                    const shiftName = cells[2].textContent;
+                    const day = cells[3].textContent;
+                    const type = cells[4].textContent;
+                    const session = cells[5].textContent;
+                    const time = cells[6].textContent;
+                    const area = cells[7].textContent;
+
+                    // Hiển thị dữ liệu trong modal chi tiết
+                    document.getElementById("shiftNameDetail").textContent = shiftName;
+                    document.getElementById("shiftDayDetail").textContent = day;
+                    document.getElementById("shiftTypeDetail").textContent = type;
+                    document.getElementById("shiftSessionDetail").textContent = session;
+                    document.getElementById("shiftTimeDetail").textContent = time;
+                    document.getElementById("shiftAreaDetail").textContent = area;
+
+                    // Hiển thị modal
+                    document.getElementById("shiftDetailModal").style.display = "block";
+                }
+            });
         </script>
 
 
