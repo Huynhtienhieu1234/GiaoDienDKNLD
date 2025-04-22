@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="../CSS/TrangDKLD.css">
+    <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Trang Tạo Đăng Ký</title>
+    <title>Thông Tin Quản Lý</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                 <i class="fa fa-caret-down"></i>
                 <ul class="dropdown-menu" id="dropdownMenu">
                     <li><a class="a-color" href="Trangthongtinquanly.html">Thông tin cá nhân</a></li>
-                    <li><a class="a-color" href="#">Đổi mật khẩu</a></li>
+                    <li><a class="a-color" href="DoiMatKhau.html">Đổi mật khẩu</a></li>
                     <li><a class="a-color" href="login.html">Đăng xuất</a></li>
                 </ul>
             </div>
@@ -33,15 +33,15 @@
     </nav>
     <div class="container mt-5">
         <div class="nav-content-text">
-            <span class="nav-content-text">Tạo Đăng Kí </span>
+            <span class="nav-content-text">Thông Tin Quản Lý</span>
         </div>
         <div class="row">
+            <!-- Menu Bên Trái -->
             <div class="col-md-3">
                 <!-- Nút bấm để mở menu -->
                 <button class="menu-toggle" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i> Menu
                 </button>
-
                 <!-- Danh sách menu -->
                 <div class="box-container-menu" id="menu">
                     <a href="TrangNguoiQuanLy.html"><i class="fa fa-home"></i> Trang chủ</a>
@@ -60,182 +60,42 @@
 
             <!-- Nội dung chính -->
             <div class="col-md-9">
-                <div class="Topcontainer">
-                    <button class="Topcontainer-left" id="openFormButton">
-                        Tạo Đợt Lao động
-                    </button>
-                    <button class="Topcontainer-right" id="deleteShiftButton">
-                        Xóa Đợt Lao động
-                    </button>
-                    <input type="text" id="searchInput" placeholder="Tìm kiếm..."
-                        style="margin-left: 10px; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
-                    <button onclick="searchFunction()"
-                        style="padding: 10px; border-radius: 10px; border: 1px solid #ccc; background-color: #f44336; color: white; margin-left: 5px;">
-                        Tìm
-                    </button>
-                </div>
-                <div class="table-container" id="personalTable">
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th><input type="checkbox" id="select-all"></th>
-                                <th class="text-center align-middle">STT</th>
-                                <th class="text-center align-middle">Tên Đợt</th>
-                                <th class="text-center align-middle">Thứ</th>
-                                <th class="text-center align-middle">Loại Lao Động</th>
-                                <th class="text-center align-middle">Buổi</th>
-                                <th class="text-center align-middle">Thời Gian</th>
-                                <th class="text-center align-middle">Khu Vực</th>
-                                <th class="text-center align-middle">Thao Tác</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-pending"></tbody>
-                    </table>
-                </div>
-            </div>
+                <div class="info-card">
+                    <h2 class="title">Thông tin tài khoản</h2>
 
-            <!-- Form Tạo Đợt Lao Động -->
-            <div id="createShiftForm" class="modal" style="display: none;">
-                <button class="close" title="Close"
-                    style="position: absolute; top: 10px; right: 15px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">×</button>
-                <div class="modal-content">
-                    <h2 class="nav-content-text" style="text-align: center; font-family: 'Arial', sans-serif;">Tạo Đợt
-                        Lao Động</h2>
-                    <form id="shiftForm" style="display: flex; flex-direction: column; gap: 10px;">
-                        <label for="shiftName" style="font-weight: bold;">Tên Đợt:</label>
-                        <input type="text" id="shiftName" name="shiftName" required
-                            style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-                        <label for="day" style="font-weight: bold;">Chọn Thứ:</label>
-                        <select id="day" name="day" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-                            <option value="Thứ hai">Thứ hai</option>
-                            <option value="Thứ ba">Thứ ba</option>
-                            <option value="Thứ tư">Thứ tư</option>
-                            <option value="Thứ năm">Thứ năm</option>
-                            <option value="Thứ sáu">Thứ sáu</option>
-                            <option value="Thứ bảy">Thứ bảy</option>
-                            <option value="Chủ nhật">Chủ nhật</option>
-                        </select>
-                        <label for="session" style="font-weight: bold;">Chọn Buổi:</label>
-                        <select id="session" name="session"
-                            style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-                            <option value="Buổi sáng">Buổi sáng</option>
-                            <option value="Buổi chiều">Buổi chiều</option>
-                        </select>
-                        <label for="time" style="font-weight: bold;">Chọn Thời Gian:</label>
-                        <select id="time" name="time" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-                            <option value="7h-8h">7h-8h</option>
-                            <option value="14h-15h">14h-15h</option>
-                        </select>
-                        <label for="area" style="font-weight: bold;">Chi Tiết Khu Vực:</label>
-                        <input type="text" id="area" name="area" required
-                            style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-                        <button type="submit"
-                            style="background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Lưu</button>
-                        <button type="button" onclick="document.getElementById('createShiftForm').style.display='none'"
-                            style="background-color: #f44336; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
-                            Đóng Form
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Modal Chi Tiết Lao Động -->
-            <div id="shiftDetailModal" class="shift-modal" style="display: none;">
-                <div class="shift-modal-content">
-                    <button class="close-btn" title="Close"
-                        onclick="document.getElementById('shiftDetailModal').style.display='none'"
-                        style="position: absolute; top: 10px; right: 15px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">×</button>
-                    <h2 class="nav-content-text" style="text-align: center; font-family: 'Arial', sans-serif;">Chi Tiết
-                        Đợt Lao Động</h2>
-                    <div id="shiftDetailContent" style="padding: 20px;">
-                        <p><strong>Tên Đợt:</strong> <span id="shiftNameDetail"></span></p>
-                        <p><strong>Thứ:</strong> <span id="shiftDayDetail"></span></p>
-                        <p><strong>Loại Lao Động:</strong> <span id="shiftTypeDetail"></span></p>
-                        <p><strong>Buổi:</strong> <span id="shiftSessionDetail"></span></p>
-                        <p><strong>Thời Gian:</strong> <span id="shiftTimeDetail"></span></p>
-                        <p><strong>Khu Vực:</strong> <span id="shiftAreaDetail"></span></p>
+                    <div class="profile-img-container">
+                        <img src="../image/Avarta.png" alt="Ảnh đại diện" class="profile-img">
+                        <div class="overlay">Thay đổi ảnh</div>
                     </div>
-                    <button onclick="document.getElementById('shiftDetailModal').style.display='none'"
-                        style="background-color: #f44336; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
-                        Đóng
-                    </button>
+
+                    <div class="info-container">
+                        <!-- Left Column -->
+                        <div class="info col-md-6">
+                            <p><strong>MSQL:</strong> 2025001</p>
+                            <p><strong>Họ và tên:</strong> Huỳnh Tiến Hiếu</p>
+                            <p><strong>Ngày sinh:</strong> 01/01/2000</p>
+                            <p><strong>Email:</strong> Huynhtienhieu@gmail.com</p>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="info col-md-6">
+                            <p><strong>Giới tính:</strong> Nam</p>
+                            <p><strong>Địa chỉ:</strong> Cao Lãnh, Đồng Tháp</p>
+                            <p><strong>Số điện thoại:</strong> 0123456789</p>
+                            <p><strong>Vai trò:</strong> Quản lý</p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="editButton">Chỉnh sửa thông tin</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Hiển thị/ẩn form "Tạo Đợt Lao Động"
-        document.getElementById("openFormButton").addEventListener("click", function () {
-            document.getElementById("createShiftForm").style.display = "block";
-        });
-
-        document.querySelectorAll(".close").forEach(function (closeButton) {
-            closeButton.addEventListener("click", function () {
-                document.getElementById("createShiftForm").style.display = "none";
-            });
-        });
-
-        // Xử lý gửi form và thêm dữ liệu vào bảng
-        document.getElementById("shiftForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Ngăn tải lại trang
-
-            // Thu thập dữ liệu từ form
-            const shiftName = document.getElementById("shiftName").value;
-            const day = document.getElementById("day").value;
-            const session = document.getElementById("session").value;
-            const time = document.getElementById("time").value;
-            const area = document.getElementById("area").value;
-
-            // Thêm một hàng mới vào bảng
-            const tableBody = document.getElementById("table-pending");
-            const rowIndex = tableBody.rows.length + 1;
-
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td><input type="checkbox" class="row-checkbox"></td>
-                <td class="text-center align-middle">${rowIndex}</td>
-                <td class="text-center align-middle">${shiftName}</td>
-                <td class="text-center align-middle">${day}</td>
-                <td class="text-center align-middle">Lao Động Cá Nhân</td>
-                <td class="text-center align-middle">${session}</td>
-                <td class="text-center align-middle">${time}</td>
-                <td class="text-center align-middle">${area}</td>
-                <td class="text-center align-middle">
-                    <button class="btn btn-primary btn-sm view-detail">Xem Chi Tiết</button>
-                </td>
-            `;
-            tableBody.appendChild(newRow);
-
-            // Reset form và ẩn form
-            document.getElementById("shiftForm").reset();
-            document.getElementById("createShiftForm").style.display = "none";
-        });
-
-        // Xử lý menu dropdown của user
-        document.getElementById("userMenu").addEventListener("click", function (event) {
-            event.stopPropagation();
-            document.getElementById("dropdownMenu").classList.toggle("show");
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!document.getElementById("userMenu").contains(event.target)) {
-                document.getElementById("dropdownMenu").classList.remove("show");
-            }
-        });
-
-        // Xử lý checkbox "select all"
-        document.getElementById("select-all").addEventListener("change", function () {
-            const checkboxes = document.querySelectorAll(".row-checkbox");
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-            });
-        });
-
         // Hàm toggle menu
         function toggleMenu() {
-            const menu = document.getElementById("menu");
-            const button = document.querySelector(".menu-toggle i");
+            var menu = document.getElementById("menu");
+            var button = document.querySelector(".menu-toggle i");
 
             if (menu.style.maxHeight === "0px" || menu.style.maxHeight === "") {
                 menu.style.maxHeight = "500px"; // Mở menu
@@ -248,35 +108,15 @@
             }
         }
 
-        // Hàm tìm kiếm
-        function searchFunction() {
-            console.log("Tìm kiếm: " + document.getElementById("searchInput").value);
-        }
+        // Xử lý menu dropdown của user
+        document.getElementById('userMenu').addEventListener('click', function (event) {
+            event.stopPropagation();
+            document.getElementById('dropdownMenu').classList.toggle('show');
+        });
 
-        // Xử lý sự kiện cho nút "Xem Chi Tiết"
-        document.addEventListener("click", function (event) {
-            if (event.target.classList.contains("view-detail")) {
-                const row = event.target.closest("tr");
-                const cells = row.getElementsByTagName("td");
-
-                // Lấy dữ liệu từ hàng được click
-                const shiftName = cells[2].textContent;
-                const day = cells[3].textContent;
-                const type = cells[4].textContent;
-                const session = cells[5].textContent;
-                const time = cells[6].textContent;
-                const area = cells[7].textContent;
-
-                // Hiển thị dữ liệu trong modal chi tiết
-                document.getElementById("shiftNameDetail").textContent = shiftName;
-                document.getElementById("shiftDayDetail").textContent = day;
-                document.getElementById("shiftTypeDetail").textContent = type;
-                document.getElementById("shiftSessionDetail").textContent = session;
-                document.getElementById("shiftTimeDetail").textContent = time;
-                document.getElementById("shiftAreaDetail").textContent = area;
-
-                // Hiển thị modal
-                document.getElementById("shiftDetailModal").style.display = "block";
+        document.addEventListener('click', function (event) {
+            if (!document.getElementById('userMenu').contains(event.target)) {
+                document.getElementById('dropdownMenu').classList.remove('show');
             }
         });
     </script>

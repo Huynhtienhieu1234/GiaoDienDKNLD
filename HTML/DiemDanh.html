@@ -81,7 +81,96 @@
                 }
             </script>
             <div class="col-md-9">
-                <span style="text-align: center;">Tạo Mã Điểm Danh</span>
+                <h1 class="Điemdanh" style="text-align: center; color: rgb(123, 200, 245);">Điểm Danh Lao Động</h1>
+                <!-- Khung hiển thị đợt lao động -->
+                <div class="khung-diem-danh">
+                    <div class="noi-dung-diem-danh">
+                        <strong>Đợt 1 Ngày 19/07/2025</strong>
+                        <button class="btn btn-success ms-3" onclick="hienPopup()">Xem Mã Điểm Danh</button>
+                    </div>
+                </div>
+
+                <!-- Popup hiển thị mã điểm danh -->
+                <div class="popup-ma" id="popupMa">
+                    <div class="popup-noi-dung text-center">
+                        <h5 class="mb-3">Mã Điểm Danh</h5>
+                        <canvas id="qrcodeCanvas"></canvas>
+                        <div id="soNgauNhien" class="mt-2 fw-bold"></div>
+                        <button class="btn btn-secondary mt-3" onclick="dongPopup()">Đóng</button>
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <style>
+                    .khung-diem-danh {
+                        border: 1px solid #ccc;
+                        border-radius: 10px;
+                        background-color: #fff;
+                        padding: 15px 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: auto;
+                        margin: 30px auto;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                    }
+
+                    .noi-dung-diem-danh {
+                        display: flex;
+                        align-items: center;
+                        font-size: 18px;
+                    }
+
+                    /* Popup */
+                    .popup-ma {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100vw;
+                        height: 100vh;
+                        background: rgba(0, 0, 0, 0.5);
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000;
+                    }
+
+                    .popup-noi-dung {
+                        background: #fff;
+                        padding: 25px;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                    }
+                </style>
+
+                <!-- Script -->
+                <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+                <script>
+                    let intervalId;
+
+                    function hienPopup() {
+                        document.getElementById("popupMa").style.display = "flex";
+                        taoMaQR(); // gọi lần đầu
+                        intervalId = setInterval(taoMaQR, 10000); // đổi mỗi 10 giây
+                    }
+
+                    function dongPopup() {
+                        document.getElementById("popupMa").style.display = "none";
+                        clearInterval(intervalId);
+                    }
+
+                    function taoMaQR() {
+                        const maSo = Math.floor(100000 + Math.random() * 900000); // mã ngẫu nhiên 6 chữ số
+                        const canvas = document.getElementById("qrcodeCanvas");
+                        const divSo = document.getElementById("soNgauNhien");
+
+                        QRCode.toCanvas(canvas, String(maSo), function (error) {
+                            if (error) console.error(error);
+                        });
+
+                        divSo.textContent = "Mã số: " + maSo;
+                    }
+                </script>
 
             </div>
 
